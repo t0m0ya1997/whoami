@@ -1,7 +1,7 @@
 ---
 title: ベイズから眺めるMAP推定は豊洲の高層ビルから眺める東京湾よりも美しいのか。
 date: 2022-01-21
-tags: [Bayesian Inference, Machine Learning, Maethmatical Optimization, Regression]
+tags: [Bayesian Inference, Machine Learning, Mathematical Optimization, Regression]
 description: "本記事では，ベイズの枠組みでLASSO回帰やRidge回帰に代表される，正則化付き最小二乗法を眺めてみます．"
 math: true
 image: "/image/Bayes_MAP_head.png"
