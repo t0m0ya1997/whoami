@@ -10,6 +10,7 @@ googleAnalytics = ""
 summaryLength = 40
 pluralizeListTitles = false
 enableemoji = true
+publishDir = "docs"
 
 [params]
     description = "A description for the meta tag of the site"
