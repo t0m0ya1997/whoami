@@ -15,7 +15,7 @@
 <meta property="og:title" content="C&#43;&#43;配列を.npy形式で保存したい癖の強いあなたへ。" />
 <meta property="og:description" content="この記事では，C&#43;&#43;で数値シミュレーションを行っている方向けに，Python の numpy で使える .npy 形式で C&#43;&#43;配列 vector を保存する方法を紹介します．" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://t0m0ya1997.github.io/posts/c&#43;&#43;2npy/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://t0m0ya1997.github.io/whoami/posts/c&#43;&#43;2npy/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-24T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-01-24T00:00:00+00:00" />
 
@@ -27,21 +27,21 @@
 <meta itemprop="name" content="C&#43;&#43;配列を.npy形式で保存したい癖の強いあなたへ。">
 <meta itemprop="description" content="この記事では，C&#43;&#43;で数値シミュレーションを行っている方向けに，Python の numpy で使える .npy 形式で C&#43;&#43;配列 vector を保存する方法を紹介します．"><meta itemprop="datePublished" content="2022-01-24T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-01-24T00:00:00+00:00" />
-<meta itemprop="wordCount" content="4817">
+<meta itemprop="wordCount" content="5556">
 <meta itemprop="keywords" content="Programming,C&#43;&#43;,Python," />
-<link rel="canonical" href="https://t0m0ya1997.github.io/posts/c&#43;&#43;2npy/" />
+<link rel="canonical" href="https://t0m0ya1997.github.io/whoami/posts/c&#43;&#43;2npy/" />
 
-<link rel="icon" type="image/png" href="https://t0m0ya1997.github.io/image/favicon.ico">
+<link rel="icon" type="image/png" href="https://t0m0ya1997.github.io/whoamiimage/favicon.ico">
 
-<link rel="stylesheet" href="/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/bulma.min.css">
-
-
+<link rel="stylesheet" href="/whoami/css/font-awesome.min.css">
+<link rel="stylesheet" href="/whoami/css/bulma.min.css">
 
 
 
-<script src=/js/ramium.js></script>
-<link rel="stylesheet" href=/css/ramium.css>
+
+
+<script src=/whoami/js/ramium.js></script>
+<link rel="stylesheet" href=/whoami/css/ramium.css>
 
 
 
@@ -76,7 +76,7 @@
 
 <body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href=/>
+    <a class="navbar-item" href=/whoami/>
       
       <strong>TH&#39;s Blog </strong>
       
@@ -94,7 +94,7 @@
     <div class="navbar-start">
       
       
-      <a class="navbar-item" href="/">Home</a>
+      <a class="navbar-item" href="/whoami/">Home</a>
       
       
       
@@ -102,18 +102,18 @@
         <a class="navbar-link">This Blog</a>
         <div class="navbar-dropdown">
           
-          <a class="navbar-item" href="/tags/">All Tags</a>
+          <a class="navbar-item" href="/whoami/tags/">All Tags</a>
           
-          <a class="navbar-item" href="/sections/">All Sections</a>
+          <a class="navbar-item" href="/whoami/sections/">All Sections</a>
           
-          <a class="navbar-item" href="/posts/">All Posts</a>
+          <a class="navbar-item" href="/whoami/posts/">All Posts</a>
           
         </div>
       </div>
       
       
       
-      <a class="navbar-item" href="/author/">Author</a>
+      <a class="navbar-item" href="/whoami/author/">Author</a>
       
       
     </div>
@@ -152,11 +152,11 @@
         <div class="level-right is-hidden-touch">
             <div class="tags">
                 
-                <a class="tag is-dark is-rounded" href="/tags/programming">Programming</a>
+                <a class="tag is-dark is-rounded" href="/whoami/tags/programming">Programming</a>
                 
-                <a class="tag is-dark is-rounded" href="/tags/c&#43;&#43;">C&#43;&#43;</a>
+                <a class="tag is-dark is-rounded" href="/whoami/tags/c&#43;&#43;">C&#43;&#43;</a>
                 
-                <a class="tag is-dark is-rounded" href="/tags/python">Python</a>
+                <a class="tag is-dark is-rounded" href="/whoami/tags/python">Python</a>
                 
             </div>
         </div>
@@ -164,18 +164,18 @@
 
     <div class="tags is-hidden-desktop">
         
-        <a class="tag is-dark is-rounded" href="/tags/programming">Programming</a>
+        <a class="tag is-dark is-rounded" href="/whoami/tags/programming">Programming</a>
         
-        <a class="tag is-dark is-rounded" href="/tags/c&#43;&#43;">C</a>
+        <a class="tag is-dark is-rounded" href="/whoami/tags/c&#43;&#43;">C</a>
         
-        <a class="tag is-dark is-rounded" href="/tags/python">Python</a>
+        <a class="tag is-dark is-rounded" href="/whoami/tags/python">Python</a>
         
     </div>
 
     <div class="blog-text">
         
         <figure>
-            <img src="/image/profile.jpg">
+            <img src="/whoami/image/profile.jpg">
         </figure>
         
 
@@ -1569,46 +1569,46 @@
 	<br>
 	
 	<div class="share-buttons">
-	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft0m0ya1997.github.io%2fposts%2fc%2b%2b2npy%2f"
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fc%2b%2b2npy%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Facebook. Opens in a new window.">
-	        <img src=/img/icons/45px/facebook.png>
+	        <img src=/whoami/img/icons/45px/facebook.png>
 	    </a>
 
-	    <a  href="https://twitter.com/intent/tweet?text=C%2b%2b%e9%85%8d%e5%88%97%e3%82%92.npy%e5%bd%a2%e5%bc%8f%e3%81%a7%e4%bf%9d%e5%ad%98%e3%81%97%e3%81%9f%e3%81%84%e7%99%96%e3%81%ae%e5%bc%b7%e3%81%84%e3%81%82%e3%81%aa%e3%81%9f%e3%81%b8%e3%80%82&url=https%3a%2f%2ft0m0ya1997.github.io%2fposts%2fc%2b%2b2npy%2f"
+	    <a  href="https://twitter.com/intent/tweet?text=C%2b%2b%e9%85%8d%e5%88%97%e3%82%92.npy%e5%bd%a2%e5%bc%8f%e3%81%a7%e4%bf%9d%e5%ad%98%e3%81%97%e3%81%9f%e3%81%84%e7%99%96%e3%81%ae%e5%bc%b7%e3%81%84%e3%81%82%e3%81%aa%e3%81%9f%e3%81%b8%e3%80%82&url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fc%2b%2b2npy%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Twitter. Opens in a new window." >
-	        <img src=/img/icons/45px/twitter.png>
+	        <img src=/whoami/img/icons/45px/twitter.png>
 	    </a>
 
-		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2ft0m0ya1997.github.io%2fposts%2fc%2b%2b2npy%2f"
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fc%2b%2b2npy%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Reddit. Opens in a new window." >
-	        <img src=/img/icons/45px/reddit.png>
+	        <img src=/whoami/img/icons/45px/reddit.png>
 	    </a>
 
-	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2ft0m0ya1997.github.io%2fposts%2fc%2b%2b2npy%2f"
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fc%2b%2b2npy%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Pinterest. Opens in a new window." >
-	        <img src=/img/icons/45px/pinterest.png>
+	        <img src=/whoami/img/icons/45px/pinterest.png>
 	    </a>
 
-	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2ft0m0ya1997.github.io%2fposts%2fc%2b%2b2npy%2f"
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fc%2b%2b2npy%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Tumblr. Opens in a new window." >
-	        <img src=/img/icons/45px/tumblr.png>
+	        <img src=/whoami/img/icons/45px/tumblr.png>
 	    </a>
 
-		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2ft0m0ya1997.github.io%2fposts%2fc%2b%2b2npy%2f
-			&title=C%2b%2b%e9%85%8d%e5%88%97%e3%82%92.npy%e5%bd%a2%e5%bc%8f%e3%81%a7%e4%bf%9d%e5%ad%98%e3%81%97%e3%81%9f%e3%81%84%e7%99%96%e3%81%ae%e5%bc%b7%e3%81%84%e3%81%82%e3%81%aa%e3%81%9f%e3%81%b8%e3%80%82&summary=%e3%81%93%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%a7%e3%81%af%ef%bc%8cC%2b%2b%e3%81%a7%e6%95%b0%e5%80%a4%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e8%a1%8c%e3%81%a3%e3%81%a6%e3%81%84%e3%82%8b%e6%96%b9%e5%90%91%e3%81%91%e3%81%ab%ef%bc%8cPython%20%e3%81%ae%20numpy%20%e3%81%a7%e4%bd%bf%e3%81%88%e3%82%8b.npy%e5%bd%a2%e5%bc%8f%e3%81%a7%20C%2b%2b%e9%85%8d%e5%88%97vector%20%e3%82%92%e4%bf%9d%e5%ad%98%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95%e3%82%92%e7%b4%b9%e4%bb%8b%e3%81%97%e3%81%be%e3%81%99%ef%bc%8e%20%e7%b5%90%e8%ab%96%e3%81%a0%e3%81%91%e3%82%92%e3%81%8a%e6%b1%82%e3%82%81%e3%81%ae%e6%96%b9%e3%81%af%e6%9c%80%e4%b8%8b%e9%83%a8%e3%81%ab%20numpy.hpp%20%e3%82%92%e6%8e%b2%e8%bc%89%e3%81%97%e3%81%a6%e3%81%8a%e3%82%8a%e3%81%be%e3%81%99%e3%81%ae%e3%81%a7%ef%bc%8c%e3%81%9d%e3%81%a1%e3%82%89%e3%82%92%e3%82%b3%e3%83%94%e3%83%9a%e3%81%aa%e3%82%8a%e3%81%97%e3%81%a6%e3%81%8a%e6%89%8b%e5%85%83%e3%81%a7%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%81%a6%e3%81%8f%e3%81%a0%e3%81%95%e3%81%84%ef%bc%8e%0a%e7%a7%81%e3%81%afMCMC%e3%81%aa%e3%81%a9%e3%81%ae%e6%95%b0%e5%80%a4%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e8%a1%8c%e3%81%86%e9%9a%9b%e3%81%ab%ef%bc%8c%e8%a8%88%e7%ae%97%e6%99%82%e9%96%93%e3%81%ae%e8%a6%b3%e7%82%b9%e3%81%8b%e3%82%89Python%e3%81%a7%e3%81%af%e3%81%aa%e3%81%8fC%2b%2b%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%84%e3%81%be%e3%81%99%ef%bc%8e%20%e3%81%97%e3%81%8b%e3%81%97%e3%81%aa%e3%81%8c%e3%82%89%ef%bc%8c%e5%ae%9f%e9%a8%93%e7%b5%90%e6%9e%9c%e3%81%ae%e5%8f%af%e8%a6%96%e5%8c%96%e3%82%92%e8%a1%8c%e3%81%86%e3%81%ab%e3%81%af%e3%83%90%e3%82%a4%e3%83%8a%e3%83%aa%e3%82%b3%e3%83%bc%e3%83%89%e3%81%a7%e7%b5%90%e6%9e%9c%e3%82%92%e6%9b%b8%e3%81%8d%e5%87%ba%e3%81%97%e3%81%a6%ef%bc%8cgnuplot%e3%82%92%e7%94%a8%e3%81%84%e3%82%8b%e3%81%aa%e3%81%a9%ef%bc%8c%e7%a7%81%e7%9a%84%e3%81%ab%e3%81%af%e6%95%b7%e5%b1%85%e3%81%8c%e9%ab%98%e3%81%8f%e6%84%9f%e3%81%98%e3%81%a6%e3%81%84%e3%81%be%e3%81%99%ef%bc%8e%20%e4%b8%80%e6%96%b9%e3%81%a7%ef%bc%8cPython%e3%81%aematplotlib%e3%81%a8%e3%81%84%e3%81%86%e3%83%a9%e3%82%a4%e3%83%96%e3%83%a9%e3%83%aa%e3%82%92%e7%94%a8%e3%81%84%e3%82%8b%e3%81%a8%ef%bc%8c%e3%81%9d%e3%81%ae%e5%ad%a6%e7%bf%92%e3%82%b3%e3%82%b9%e3%83%88%e3%81%8c%e4%bd%8e%e3%81%84%e5%8f%8d%e9%9d%a2%ef%bc%8c%e8%ab%96%e6%96%87%e3%81%ab%e3%82%82%e4%bd%bf%e3%81%88%e3%82%8b%e3%82%88%e3%81%86%e3%81%aa%ef%bc%8c%e3%81%9d%e3%82%8c%e3%81%a3%e3%81%bd%e3%81%84%e5%9b%b3%e3%81%8c%e7%b0%a1%e5%8d%98%e3%81%ab%e6%8f%8f%e3%81%91%e3%81%a6%e3%81%97%e3%81%be%e3%81%84%e3%81%be%e3%81%99%ef%bc%8e%20%e3%81%9d%e3%81%93%e3%81%a7%ef%bc%8cC%2b%2b%e3%81%a7%e4%bd%9c%e6%88%90%e3%81%97%e3%81%9fvector%ef%bc%88%e5%a4%9a%e6%ac%a1%e5%85%83%e3%82%82%e5%90%ab%e3%82%80%ef%bc%89%e3%82%92%ef%bc%8cPython%e3%81%aenumpy%e3%81%a7%e7%b0%a1%e5%8d%98%e3%81%ab%e8%aa%ad%e3%81%bf%e6%9b%b8%e3%81%8d%e3%81%8c%e3%81%a7%e3%81%8d%e3%82%8b.npy%e5%bd%a2%e5%bc%8f%e3%81%a7%e3%83%87%e3%83%bc%e3%82%bf%e3%81%ae%e3%82%84%e3%82%8a%e5%8f%96%e3%82%8a%e3%81%8c%e3%81%a7%e3%81%8d%e3%82%8b%e3%81%a8%e6%9c%80%e9%ab%98%e3%81%aa%e3%81%ae%e3%81%a7%e3%81%99%ef%bc%8e%0a%e4%bb%8a%e5%9b%9e%e7%b4%b9%e4%bb%8b%e3%81%99%e3%82%8b%e3%81%ae%e3%81%af%ef%bc%8cC%2b%2b%20%e3%81%ae%20vector%20%e3%82%92.npy%e5%bd%a2%e5%bc%8f%e3%81%a7%e4%bf%9d%e5%ad%98%e3%81%99%e3%82%8bSaveNpy%e9%96%a2%e6%95%b0%e3%81%a8%ef%bc%8cPython%20%e3%82%92%e7%94%a8%e3%81%84%e3%81%a6%e7%94%9f%e6%88%90%e3%81%97%e3%81%9f.npy%e5%bd%a2%e5%bc%8f%e3%81%a7%e4%bf%9d%e5%ad%98%e3%81%95%e3%82%8c%e3%81%9f%e5%a4%9a%e6%ac%a1%e5%85%83%e9%85%8d%e5%88%97%e3%82%92%20C%2b%2b%20%e5%86%85%e3%81%a7%e5%a4%9a%e6%ac%a1%e5%85%83%20vector%20%e3%81%a8%e3%81%97%e3%81%a6%e8%aa%ad%e3%81%bf%e8%be%bc%e3%82%80LoadNpy%e9%96%a2%e6%95%b0%e3%81%a7%e3%81%99%ef%bc%8e%20%e5%ae%9f%e8%a3%85%e3%81%af%e3%81%93%e3%81%a1%e3%82%89%e3%81%ae%e8%a8%98%e4%ba%8b%e3%82%92%e5%a4%a7%e3%81%84%e3%81%ab%e5%8f%82%e8%80%83%e3%81%ab%e3%81%95%e3%81%9b%e3%81%a6%e3%81%84%e3%81%9f%e3%81%a0%e3%81%8d%e3%81%be%e3%81%97%e3%81%9f%ef%bc%8e%20%e6%b3%a8%e6%84%8f%e3%81%a8%e3%81%97%e3%81%a6%e3%81%af%ef%bc%8c4%e6%ac%a1%e5%85%83%e9%85%8d%e5%88%97%e3%81%be%e3%81%a7%e3%81%97%e3%81%8b%e5%af%be%e5%bf%9c%e3%81%97%e3%81%a6%e3%81%84%e3%81%aa%e3%81%84%e3%81%a7%e3%81%99%ef%bc%8e%20%e7%a7%81%e3%81%ae%e5%a0%b4%e5%90%88%ef%bc%8c4%e6%ac%a1%e5%85%83%e3%81%a7%e4%ba%8b%e8%b6%b3%e3%82%8a%e3%81%a6%e3%81%84%e3%82%8b%e3%81%ae%e3%81%a7%e3%81%99%e3%81%8c%ef%bc%8c4%e6%ac%a1%e5%85%83%e3%82%88%e3%82%8a%e3%82%82%e5%a4%a7%e3%81%8d%e3%81%aa%e6%ac%a1%e5%85%83%e3%81%ae%e9%85%8d%e5%88%97%e3%81%ae%e5%85%a5%e5%87%ba%e5%8a%9b%e3%81%8c%e5%bf%85%e8%a6%81%e3%81%a7%e3%81%97%e3%81%9f%e3%82%89%ef%bc%8c%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e5%8f%82%e8%80%83%e3%81%ab%e6%9b%b8%e3%81%8d%e6%8f%9b%e3%81%88%e3%81%a6%e3%81%bf%e3%81%a6%e3%81%8f%e3%81%a0%e3%81%95%e3%81%84%ef%bc%8e%20%e3%81%be%e3%81%9f%ef%bc%8c%e7%a7%81%e3%81%afint%e5%9e%8b%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e3%81%93%e3%81%a8%e3%82%82%e3%81%82%e3%82%8b%e3%81%9f%e3%82%81%ef%bc%8c%e4%b8%8a%e8%a8%98%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%abint%e5%9e%8b%e3%81%ae%e5%85%a5%e5%87%ba%e5%8a%9b%e3%82%92%e5%8a%a0%e3%81%88%e3%81%9f%e3%82%82%e3%81%ae%e3%82%92%e7%b4%b9%e4%bb%8b%e3%81%97%e3%81%be%e3%81%99%ef%bc%8e%0a%20numpy.hpp%20%23pragma%20once%20%23include%20%26lt%3bfstream%26gt%3b%23include%20%26lt%3biostream%26gt%3b%23include%20%26lt%3bstring%26gt%3b%23include%20%26lt%3bcstdio%26gt%3b%23include%20%26lt%3bvector%26gt%3b%20namespace%20%7b%20template%20%26lt%3btypename%20.&source=rafed123.github.io"
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fc%2b%2b2npy%2f
+			&title=C%2b%2b%e9%85%8d%e5%88%97%e3%82%92.npy%e5%bd%a2%e5%bc%8f%e3%81%a7%e4%bf%9d%e5%ad%98%e3%81%97%e3%81%9f%e3%81%84%e7%99%96%e3%81%ae%e5%bc%b7%e3%81%84%e3%81%82%e3%81%aa%e3%81%9f%e3%81%b8%e3%80%82&summary=%e3%81%93%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%a7%e3%81%af%ef%bc%8cC%2b%2b%e3%81%a7%e6%95%b0%e5%80%a4%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e8%a1%8c%e3%81%a3%e3%81%a6%e3%81%84%e3%82%8b%e6%96%b9%e5%90%91%e3%81%91%e3%81%ab%ef%bc%8cPython%20%e3%81%ae%20numpy&source=rafed123.github.io"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on LinkedIn. Opens in a new window." >
-	        <img src=/img/icons/45px/linkedin.png>
+	        <img src=/whoami/img/icons/45px/linkedin.png>
 	    </a>
 
-	    <a  href="mailto:?subject=C%2b%2b%e9%85%8d%e5%88%97%e3%82%92.npy%e5%bd%a2%e5%bc%8f%e3%81%a7%e4%bf%9d%e5%ad%98%e3%81%97%e3%81%9f%e3%81%84%e7%99%96%e3%81%ae%e5%bc%b7%e3%81%84%e3%81%82%e3%81%aa%e3%81%9f%e3%81%b8%e3%80%82&amp;body=Check out this site https%3a%2f%2ft0m0ya1997.github.io%2fposts%2fc%2b%2b2npy%2f"
+	    <a  href="mailto:?subject=C%2b%2b%e9%85%8d%e5%88%97%e3%82%92.npy%e5%bd%a2%e5%bc%8f%e3%81%a7%e4%bf%9d%e5%ad%98%e3%81%97%e3%81%9f%e3%81%84%e7%99%96%e3%81%ae%e5%bc%b7%e3%81%84%e3%81%82%e3%81%aa%e3%81%9f%e3%81%b8%e3%80%82&amp;body=Check out this site https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fc%2b%2b2npy%2f"
 	        title="Share via Email. Opens in a new window." >
-	        <img src=/img/icons/45px/mail.png>
+	        <img src=/whoami/img/icons/45px/mail.png>
 	    </a>
 	</div>
 </div>

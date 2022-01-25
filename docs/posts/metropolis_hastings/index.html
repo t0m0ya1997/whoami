@@ -15,7 +15,7 @@
 <meta property="og:title" content="メトロポリス法ってなんだし。" />
 <meta property="og:description" content="本記事では，マルコフ連鎖モンテカルロ法（Markov Chain Monte Carlo: MCMC）を実現する手法の１つである，メトロポリス法（Metropolis-Hastings Method）について解説してみます．また，数値実験を行います．" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://t0m0ya1997.github.io/posts/metropolis_hastings/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://t0m0ya1997.github.io/whoami/posts/metropolis_hastings/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-24T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-01-24T00:00:00+00:00" />
 
@@ -27,21 +27,21 @@
 <meta itemprop="name" content="メトロポリス法ってなんだし。">
 <meta itemprop="description" content="本記事では，マルコフ連鎖モンテカルロ法（Markov Chain Monte Carlo: MCMC）を実現する手法の１つである，メトロポリス法（Metropolis-Hastings Method）について解説してみます．また，数値実験を行います．"><meta itemprop="datePublished" content="2022-01-24T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-01-24T00:00:00+00:00" />
-<meta itemprop="wordCount" content="438">
+<meta itemprop="wordCount" content="2174">
 <meta itemprop="keywords" content="Bayesian Inference,Machine Learning,MCMC,Metropolis-Hastings," />
-<link rel="canonical" href="https://t0m0ya1997.github.io/posts/metropolis_hastings/" />
+<link rel="canonical" href="https://t0m0ya1997.github.io/whoami/posts/metropolis_hastings/" />
 
-<link rel="icon" type="image/png" href="https://t0m0ya1997.github.io/image/favicon.ico">
+<link rel="icon" type="image/png" href="https://t0m0ya1997.github.io/whoamiimage/favicon.ico">
 
-<link rel="stylesheet" href="/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/bulma.min.css">
-
-
+<link rel="stylesheet" href="/whoami/css/font-awesome.min.css">
+<link rel="stylesheet" href="/whoami/css/bulma.min.css">
 
 
 
-<script src=/js/ramium.js></script>
-<link rel="stylesheet" href=/css/ramium.css>
+
+
+<script src=/whoami/js/ramium.js></script>
+<link rel="stylesheet" href=/whoami/css/ramium.css>
 
 
 
@@ -76,7 +76,7 @@
 
 <body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href=/>
+    <a class="navbar-item" href=/whoami/>
       
       <strong>TH&#39;s Blog </strong>
       
@@ -94,7 +94,7 @@
     <div class="navbar-start">
       
       
-      <a class="navbar-item" href="/">Home</a>
+      <a class="navbar-item" href="/whoami/">Home</a>
       
       
       
@@ -102,18 +102,18 @@
         <a class="navbar-link">This Blog</a>
         <div class="navbar-dropdown">
           
-          <a class="navbar-item" href="/tags/">All Tags</a>
+          <a class="navbar-item" href="/whoami/tags/">All Tags</a>
           
-          <a class="navbar-item" href="/sections/">All Sections</a>
+          <a class="navbar-item" href="/whoami/sections/">All Sections</a>
           
-          <a class="navbar-item" href="/posts/">All Posts</a>
+          <a class="navbar-item" href="/whoami/posts/">All Posts</a>
           
         </div>
       </div>
       
       
       
-      <a class="navbar-item" href="/author/">Author</a>
+      <a class="navbar-item" href="/whoami/author/">Author</a>
       
       
     </div>
@@ -152,13 +152,13 @@
         <div class="level-right is-hidden-touch">
             <div class="tags">
                 
-                <a class="tag is-dark is-rounded" href="/tags/bayesian-inference">Bayesian Inference</a>
+                <a class="tag is-dark is-rounded" href="/whoami/tags/bayesian-inference">Bayesian Inference</a>
                 
-                <a class="tag is-dark is-rounded" href="/tags/machine-learning">Machine Learning</a>
+                <a class="tag is-dark is-rounded" href="/whoami/tags/machine-learning">Machine Learning</a>
                 
-                <a class="tag is-dark is-rounded" href="/tags/mcmc">MCMC</a>
+                <a class="tag is-dark is-rounded" href="/whoami/tags/mcmc">MCMC</a>
                 
-                <a class="tag is-dark is-rounded" href="/tags/metropolis-hastings">Metropolis-Hastings</a>
+                <a class="tag is-dark is-rounded" href="/whoami/tags/metropolis-hastings">Metropolis-Hastings</a>
                 
             </div>
         </div>
@@ -166,20 +166,20 @@
 
     <div class="tags is-hidden-desktop">
         
-        <a class="tag is-dark is-rounded" href="/tags/bayesian-inference">Bayesian inference</a>
+        <a class="tag is-dark is-rounded" href="/whoami/tags/bayesian-inference">Bayesian inference</a>
         
-        <a class="tag is-dark is-rounded" href="/tags/machine-learning">Machine learning</a>
+        <a class="tag is-dark is-rounded" href="/whoami/tags/machine-learning">Machine learning</a>
         
-        <a class="tag is-dark is-rounded" href="/tags/mcmc">MC MC</a>
+        <a class="tag is-dark is-rounded" href="/whoami/tags/mcmc">MC MC</a>
         
-        <a class="tag is-dark is-rounded" href="/tags/metropolis-hastings">Metropolis hastings</a>
+        <a class="tag is-dark is-rounded" href="/whoami/tags/metropolis-hastings">Metropolis hastings</a>
         
     </div>
 
     <div class="blog-text">
         
         <figure>
-            <img src="/image/profile.jpg">
+            <img src="/whoami/image/profile.jpg">
         </figure>
         
 
@@ -387,46 +387,46 @@ ax_<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#
 	<br>
 	
 	<div class="share-buttons">
-	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft0m0ya1997.github.io%2fposts%2fmetropolis_hastings%2f"
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fmetropolis_hastings%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Facebook. Opens in a new window.">
-	        <img src=/img/icons/45px/facebook.png>
+	        <img src=/whoami/img/icons/45px/facebook.png>
 	    </a>
 
-	    <a  href="https://twitter.com/intent/tweet?text=%e3%83%a1%e3%83%88%e3%83%ad%e3%83%9d%e3%83%aa%e3%82%b9%e6%b3%95%e3%81%a3%e3%81%a6%e3%81%aa%e3%82%93%e3%81%a0%e3%81%97%e3%80%82&url=https%3a%2f%2ft0m0ya1997.github.io%2fposts%2fmetropolis_hastings%2f"
+	    <a  href="https://twitter.com/intent/tweet?text=%e3%83%a1%e3%83%88%e3%83%ad%e3%83%9d%e3%83%aa%e3%82%b9%e6%b3%95%e3%81%a3%e3%81%a6%e3%81%aa%e3%82%93%e3%81%a0%e3%81%97%e3%80%82&url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fmetropolis_hastings%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Twitter. Opens in a new window." >
-	        <img src=/img/icons/45px/twitter.png>
+	        <img src=/whoami/img/icons/45px/twitter.png>
 	    </a>
 
-		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2ft0m0ya1997.github.io%2fposts%2fmetropolis_hastings%2f"
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fmetropolis_hastings%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Reddit. Opens in a new window." >
-	        <img src=/img/icons/45px/reddit.png>
+	        <img src=/whoami/img/icons/45px/reddit.png>
 	    </a>
 
-	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2ft0m0ya1997.github.io%2fposts%2fmetropolis_hastings%2f"
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fmetropolis_hastings%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Pinterest. Opens in a new window." >
-	        <img src=/img/icons/45px/pinterest.png>
+	        <img src=/whoami/img/icons/45px/pinterest.png>
 	    </a>
 
-	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2ft0m0ya1997.github.io%2fposts%2fmetropolis_hastings%2f"
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fmetropolis_hastings%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Tumblr. Opens in a new window." >
-	        <img src=/img/icons/45px/tumblr.png>
+	        <img src=/whoami/img/icons/45px/tumblr.png>
 	    </a>
 
-		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2ft0m0ya1997.github.io%2fposts%2fmetropolis_hastings%2f
-			&title=%e3%83%a1%e3%83%88%e3%83%ad%e3%83%9d%e3%83%aa%e3%82%b9%e6%b3%95%e3%81%a3%e3%81%a6%e3%81%aa%e3%82%93%e3%81%a0%e3%81%97%e3%80%82&summary=%e6%9c%ac%e8%a8%98%e4%ba%8b%e3%81%a7%e3%81%af%ef%bc%8c%e3%83%9e%e3%83%ab%e3%82%b3%e3%83%95%e9%80%a3%e9%8e%96%e3%83%a2%e3%83%b3%e3%83%86%e3%82%ab%e3%83%ab%e3%83%ad%e6%b3%95%ef%bc%88Markov%20Chain%20Monte%20Carlo%3a%20MCMC%ef%bc%89%e3%82%92%e5%ae%9f%e7%8f%be%e3%81%99%e3%82%8b%e6%89%8b%e6%b3%95%e3%81%ae%ef%bc%91%e3%81%a4%e3%81%a7%e3%81%82%e3%82%8b%ef%bc%8c%e3%83%a1%e3%83%88%e3%83%ad%e3%83%9d%e3%83%aa%e3%82%b9%e6%b3%95%ef%bc%88Metropolis-Hastings%20Method%ef%bc%89%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6%e8%a7%a3%e8%aa%ac%e3%81%97%e3%81%a6%e3%81%bf%e3%81%be%e3%81%99%ef%bc%8e%20%e3%81%be%e3%81%9f%ef%bc%8c%e7%b0%a1%e5%8d%98%20of%20%e7%b0%a1%e5%8d%98%e3%81%aa%e6%95%b0%e5%80%a4%e5%ae%9f%e9%a8%93%e3%82%92%e8%a1%8c%e3%81%84%e3%81%be%e3%81%99%ef%bc%8e%0a%e3%83%a1%e3%83%88%e3%83%ad%e3%83%9d%e3%83%aa%e3%82%b9%e6%b3%95%28Metropolis-Hastings%20Method%29%20%e6%95%b0%e5%80%a4%e5%ae%9f%e9%a8%93%20%e4%bb%8a%e5%9b%9e%e3%81%af%e3%83%a1%e3%83%88%e3%83%ad%e3%83%9d%e3%83%aa%e3%82%b9%e6%b3%95%e3%81%ab%e3%82%88%e3%82%8b1%e6%ac%a1%e5%85%83%e6%a8%99%e6%ba%96%e6%ad%a3%e8%a6%8f%e5%88%86%e5%b8%83%e3%81%8b%e3%82%89%e3%81%ae%e3%82%b5%e3%83%b3%e3%83%97%e3%83%aa%e3%83%b3%e3%82%b0%e3%82%92%e8%a1%8c%e3%81%84%e3%81%be%e3%81%99%ef%bc%8e%20%e7%a2%ba%e7%8e%87%e5%a4%89%e6%95%b0%e3%82%92%20%24x%5cin%5cmathbb%20R%24%20%e3%81%a8%e3%81%97%e3%81%be%e3%81%99%ef%bc%8e%20%e6%a8%99%e6%ba%96%e6%ad%a3%e8%a6%8f%e5%88%86%e5%b8%83%e3%81%ae%e7%a2%ba%e7%8e%87%e5%af%86%e5%ba%a6%e9%96%a2%e6%95%b0%20%24p%28x%29%24%20%e3%81%af%0a%24%24%20p%28x%7c%5cmu%20%3d%200%2c%20%5csigma%5e2%20%3d%201%29%20%3d%20%5cfrac%7b1%7d%7b%5csqrt%7b2%5cpi%7d%7d%5cexp%5cleft%28-%5cfrac%7b1%7d%7b2%7dx%5e2%5cright%29%2c%20%24%24%0a%e3%81%a8%e3%81%aa%e3%82%8a%e3%81%be%e3%81%99%ef%bc%8e%20%e7%8f%be%e6%99%82%e7%82%b9%e3%81%a7%e3%81%ae%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%e3%82%92%20%24x%24%20%e3%81%a8%e3%81%97%ef%bc%8c%e7%a2%ba%e7%8e%87%e7%9a%84%e6%91%82%e5%8b%95%20%24%5cdelta%5cin%5cmathbb%20R%24%20%e3%82%92%e5%8a%a0%e3%81%88%e3%81%9f%ef%bc%8c%e9%81%b7%e7%a7%bb%e5%85%88%e3%81%ae%e5%80%99%e8%a3%9c%e7%82%b9%e3%82%92%20%24x%27%20%3d%20x%20%2b%20%5cdelta%24%e3%81%a8%e3%81%97%e3%81%be%e3%81%99%ef%bc%8e%20%e3%83%a1%e3%83%88%e3%83%ad%e3%83%9d%e3%83%aa%e3%82%b9%e6%b3%95%e3%81%ae%e6%9b%b4%e6%96%b0%e5%89%87%e3%81%a8%e3%81%97%e3%81%a6%ef%bc%8c%24x%2cx%27%24%20%e3%82%92%e7%94%a8%e3%81%84%e3%81%a6&source=rafed123.github.io"
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fmetropolis_hastings%2f
+			&title=%e3%83%a1%e3%83%88%e3%83%ad%e3%83%9d%e3%83%aa%e3%82%b9%e6%b3%95%e3%81%a3%e3%81%a6%e3%81%aa%e3%82%93%e3%81%a0%e3%81%97%e3%80%82&summary=%e6%9c%ac%e8%a8%98%e4%ba%8b%e3%81%a7%e3%81%af%ef%bc%8c%e3%83%9e%e3%83%ab%e3%82%b3%e3%83%95%e9%80%a3%e9%8e%96%e3%83%a2%e3%83%b3%e3%83%86%e3%82%ab%e3%83%ab%e3%83%ad%e6%b3%95%ef%bc%88Markov%20Chain%20Monte%20Carlo%3a%20MCMC%ef%bc%89%e3%82%92%e5%ae%9f%e7%8f%be%e3%81%99%e3%82%8b%e6%89%8b&source=rafed123.github.io"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on LinkedIn. Opens in a new window." >
-	        <img src=/img/icons/45px/linkedin.png>
+	        <img src=/whoami/img/icons/45px/linkedin.png>
 	    </a>
 
-	    <a  href="mailto:?subject=%e3%83%a1%e3%83%88%e3%83%ad%e3%83%9d%e3%83%aa%e3%82%b9%e6%b3%95%e3%81%a3%e3%81%a6%e3%81%aa%e3%82%93%e3%81%a0%e3%81%97%e3%80%82&amp;body=Check out this site https%3a%2f%2ft0m0ya1997.github.io%2fposts%2fmetropolis_hastings%2f"
+	    <a  href="mailto:?subject=%e3%83%a1%e3%83%88%e3%83%ad%e3%83%9d%e3%83%aa%e3%82%b9%e6%b3%95%e3%81%a3%e3%81%a6%e3%81%aa%e3%82%93%e3%81%a0%e3%81%97%e3%80%82&amp;body=Check out this site https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fmetropolis_hastings%2f"
 	        title="Share via Email. Opens in a new window." >
-	        <img src=/img/icons/45px/mail.png>
+	        <img src=/whoami/img/icons/45px/mail.png>
 	    </a>
 	</div>
 </div>

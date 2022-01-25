@@ -1,7 +1,11 @@
-baseURL = "https://t0m0ya1997.github.io/"
+baseURL = "https://t0m0ya1997.github.io/whoami"
+publishDir = "docs"
 #CanonifyURLs=true
 
 languageCode = "jp"
+DefaultContentLanguage = "jp"
+hasCJKLanguage = true
+enableInlineShortcodes = true
 theme = ""
 
 title = "TH's Blog"
@@ -10,7 +14,6 @@ googleAnalytics = ""
 summaryLength = 40
 pluralizeListTitles = false
 enableemoji = true
-publishDir = "docs"
 
 [params]
     description = "A description for the meta tag of the site"

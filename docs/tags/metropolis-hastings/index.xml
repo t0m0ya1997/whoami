@@ -2,21 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Metropolis-Hastings on TH&#39;s Blog</title>
-    <link>https://t0m0ya1997.github.io/tags/metropolis-hastings/</link>
+    <link>https://t0m0ya1997.github.io/whoami/tags/metropolis-hastings/</link>
     <description>Recent content in Metropolis-Hastings on TH&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Mon, 24 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://t0m0ya1997.github.io/tags/metropolis-hastings/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://t0m0ya1997.github.io/whoami/tags/metropolis-hastings/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>メトロポリス法ってなんだし。</title>
-      <link>https://t0m0ya1997.github.io/posts/metropolis_hastings/</link>
+      <link>https://t0m0ya1997.github.io/whoami/posts/metropolis_hastings/</link>
       <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://t0m0ya1997.github.io/posts/metropolis_hastings/</guid>
-      <description>本記事では，マルコフ連鎖モンテカルロ法（Markov Chain Monte Carlo: MCMC）を実現する手法の１つである，メトロポリス法（Metropolis-Hastings Method）について解説してみます． また，簡単 of 簡単な数値実験を行います．
-メトロポリス法(Metropolis-Hastings Method) 数値実験 今回はメトロポリス法による1次元標準正規分布からのサンプリングを行います． 確率変数を $x\in\mathbb R$ とします． 標準正規分布の確率密度関数 $p(x)$ は
-$$ p(x|\mu = 0, \sigma^2 = 1) = \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{1}{2}x^2\right), $$
-となります． 現時点でのサンプルを $x$ とし，確率的摂動 $\delta\in\mathbb R$ を加えた，遷移先の候補点を $x&#39; = x + \delta$とします． メトロポリス法の更新則として，$x,x&#39;$ を用いて</description>
+      <guid>https://t0m0ya1997.github.io/whoami/posts/metropolis_hastings/</guid>
+      <description>本記事では，マルコフ連鎖モンテカルロ法（Markov Chain Monte Carlo: MCMC）を実現する手</description>
     </item>
     
   </channel>
