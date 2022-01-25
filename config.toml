@@ -16,13 +16,13 @@ pluralizeListTitles = false
 enableemoji = true
 
 [params]
-    description = "「社会人になっても，学生のように趣味を愉しむ，勉学に励む，学びを共有する．」そんなコンセプトでこのblog-ishなものを作ってみました．僕の人生の一部を誰かと共有した気になる，そんな些か自己中心的な目的のためでもありますが，ふとした時にふらっと立ち寄っていただけると幸いです．"
+    description = "TH のブログ : TH Blog"
     googleSearch = ""
     adsense = ""
     showDate = true # make false if dont want to show date
     math = false # best to enable this in the front matter of a page
     githubProfile = "t0m0ya1997/whoami/"
-
+    images = ['image/profile.jpg']
     tagsInHome = 40
     sectionsInHome = 5
     paginatePostsPerPage = 5
