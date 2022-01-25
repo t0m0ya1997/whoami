@@ -10,18 +10,18 @@ theme = ""
 
 title = "TH's Blog"
 disqusShortname = ""
-googleAnalytics = ""
+googleAnalytics = "G-6379MX42G5"
 summaryLength = 40
 pluralizeListTitles = false
 enableemoji = true
 
 [params]
-    description = "A description for the meta tag of the site"
+    description = "「社会人になっても，学生のように趣味を愉しむ，勉学に励む，学びを共有する．」そんなコンセプトでこのblog-ishなものを作ってみました．僕の人生の一部を誰かと共有した気になる，そんな些か自己中心的な目的のためでもありますが，ふとした時にふらっと立ち寄っていただけると幸いです．"
     googleSearch = ""
     adsense = ""
     showDate = true # make false if dont want to show date
     math = false # best to enable this in the front matter of a page
-    githubProfile = "rafed/ramium/"
+    githubProfile = "t0m0ya1997/whoami/"
 
     tagsInHome = 40
     sectionsInHome = 5
