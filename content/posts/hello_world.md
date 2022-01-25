@@ -2,6 +2,7 @@
 title: こんにちは。黒かりんとうが美味しいと思えるようになりました。
 date: 2022-01-21
 tags: []
+description: "はじめまして．社会人になる，なってしまう，ことから，ブログを移転しました．"
 image: "/image/profile.jpg"
 draft: false
 showDate: true
