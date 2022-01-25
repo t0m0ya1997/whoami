@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Addons on TH&#39;s Blog</title>
-    <link>%20/addons/</link>
+    <link>https://t0m0ya1997.github.io/whoami/addons/</link>
     <description>Recent content in Addons on TH&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Mon, 06 Apr 2020 02:07:31 +0600</lastBuildDate><atom:link href="%20/addons/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Apr 2020 02:07:31 +0600</lastBuildDate><atom:link href="https://t0m0ya1997.github.io/whoami/addons/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About Author</title>
-      <link>%20/author/</link>
+      <link>https://t0m0ya1997.github.io/whoami/author/</link>
       <pubDate>Mon, 06 Apr 2020 02:07:31 +0600</pubDate>
       
-      <guid>%20/author/</guid>
+      <guid>https://t0m0ya1997.github.io/whoami/author/</guid>
       <description>I am Bay, data scientist in Japan, and interested in Bayesian Inference, Signal Processing, Mathematical Optimization, Machine Learnings, and so on. I want to write something I think about Programming, Books, Cameras, and Research-ish something in everyday life. I do not represent my organization in my remarks.</description>
     </item>
     
     <item>
       <title>Admin Panel</title>
-      <link>%20/admin/</link>
+      <link>https://t0m0ya1997.github.io/whoami/admin/</link>
       <pubDate>Mon, 06 Apr 2020 02:07:30 +0600</pubDate>
       
-      <guid>%20/admin/</guid>
+      <guid>https://t0m0ya1997.github.io/whoami/admin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>All Sections</title>
-      <link>%20/sections/</link>
+      <link>https://t0m0ya1997.github.io/whoami/sections/</link>
       <pubDate>Mon, 06 Apr 2020 02:07:30 +0600</pubDate>
       
-      <guid>%20/sections/</guid>
+      <guid>https://t0m0ya1997.github.io/whoami/sections/</guid>
       <description></description>
     </item>
     

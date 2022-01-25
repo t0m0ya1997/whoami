@@ -15,7 +15,7 @@
 <meta property="og:title" content="ベイズから眺めるMAP推定は豊洲の高層ビルから眺める東京湾よりも美しいのか。" />
 <meta property="og:description" content="本記事では，ベイズの枠組みでLASSO回帰やRidge回帰に代表される，正則化付き最小二乗法を眺めてみます．" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="%20/posts/bayes_map/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://t0m0ya1997.github.io/whoami/posts/bayes_map/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-21T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-01-21T00:00:00+00:00" />
 
@@ -29,19 +29,19 @@
 <meta itemprop="dateModified" content="2022-01-21T00:00:00+00:00" />
 <meta itemprop="wordCount" content="79">
 <meta itemprop="keywords" content="Bayesian Inference,Machine Learning,Maethmatical Optimization,Regression," />
-<link rel="canonical" href="%20/posts/bayes_map/" />
+<link rel="canonical" href="https://t0m0ya1997.github.io/whoami/posts/bayes_map/" />
 
-<link rel="icon" type="image/png" href="%20/image/favicon.ico">
+<link rel="icon" type="image/png" href="https://t0m0ya1997.github.io/whoami/image/favicon.ico">
 
-<link rel="stylesheet" href="/%20/css/font-awesome.min.css">
-<link rel="stylesheet" href="/%20/css/bulma.min.css">
-
-
+<link rel="stylesheet" href="/whoami/css/font-awesome.min.css">
+<link rel="stylesheet" href="/whoami/css/bulma.min.css">
 
 
 
-<script src=/%20/js/ramium.js></script>
-<link rel="stylesheet" href=/%20/css/ramium.css>
+
+
+<script src=/whoami/js/ramium.js></script>
+<link rel="stylesheet" href=/whoami/css/ramium.css>
 
 
 
@@ -76,7 +76,7 @@
 
 <body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href=/%20/>
+    <a class="navbar-item" href=/whoami/>
       
       <strong>TH&#39;s Blog </strong>
       
@@ -94,7 +94,7 @@
     <div class="navbar-start">
       
       
-      <a class="navbar-item" href="%20/">Home</a>
+      <a class="navbar-item" href="/whoami/">Home</a>
       
       
       
@@ -102,18 +102,18 @@
         <a class="navbar-link">This Blog</a>
         <div class="navbar-dropdown">
           
-          <a class="navbar-item" href="%20/tags/">All Tags</a>
+          <a class="navbar-item" href="/whoami/tags/">All Tags</a>
           
-          <a class="navbar-item" href="%20/sections/">All Sections</a>
+          <a class="navbar-item" href="/whoami/sections/">All Sections</a>
           
-          <a class="navbar-item" href="%20/posts/">All Posts</a>
+          <a class="navbar-item" href="/whoami/posts/">All Posts</a>
           
         </div>
       </div>
       
       
       
-      <a class="navbar-item" href="%20/author/">Author</a>
+      <a class="navbar-item" href="/whoami/author/">Author</a>
       
       
     </div>
@@ -152,13 +152,13 @@
         <div class="level-right is-hidden-touch">
             <div class="tags">
                 
-                <a class="tag is-dark is-rounded" href="/%20/tags/bayesian-inference">Bayesian Inference</a>
+                <a class="tag is-dark is-rounded" href="/whoami/tags/bayesian-inference">Bayesian Inference</a>
                 
-                <a class="tag is-dark is-rounded" href="/%20/tags/machine-learning">Machine Learning</a>
+                <a class="tag is-dark is-rounded" href="/whoami/tags/machine-learning">Machine Learning</a>
                 
-                <a class="tag is-dark is-rounded" href="/%20/tags/maethmatical-optimization">Maethmatical Optimization</a>
+                <a class="tag is-dark is-rounded" href="/whoami/tags/maethmatical-optimization">Maethmatical Optimization</a>
                 
-                <a class="tag is-dark is-rounded" href="/%20/tags/regression">Regression</a>
+                <a class="tag is-dark is-rounded" href="/whoami/tags/regression">Regression</a>
                 
             </div>
         </div>
@@ -166,20 +166,20 @@
 
     <div class="tags is-hidden-desktop">
         
-        <a class="tag is-dark is-rounded" href="/%20/tags/bayesian-inference">Bayesian inference</a>
+        <a class="tag is-dark is-rounded" href="/whoami/tags/bayesian-inference">Bayesian inference</a>
         
-        <a class="tag is-dark is-rounded" href="/%20/tags/machine-learning">Machine learning</a>
+        <a class="tag is-dark is-rounded" href="/whoami/tags/machine-learning">Machine learning</a>
         
-        <a class="tag is-dark is-rounded" href="/%20/tags/maethmatical-optimization">Maethmatical optimization</a>
+        <a class="tag is-dark is-rounded" href="/whoami/tags/maethmatical-optimization">Maethmatical optimization</a>
         
-        <a class="tag is-dark is-rounded" href="/%20/tags/regression">Regression</a>
+        <a class="tag is-dark is-rounded" href="/whoami/tags/regression">Regression</a>
         
     </div>
 
     <div class="blog-text">
         
         <figure>
-            <img src="/%20/image/Bayes_MAP_head.png">
+            <img src="/whoami/image/Bayes_MAP_head.png">
         </figure>
         
 
@@ -216,46 +216,46 @@ $$</p>
 	<br>
 	
 	<div class="share-buttons">
-	    <a  href="https://www.facebook.com/sharer/sharer.php?u=%2520%2fposts%2fbayes_map%2f"
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fbayes_map%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Facebook. Opens in a new window.">
-	        <img src=/%20/img/icons/45px/facebook.png>
+	        <img src=/whoami/img/icons/45px/facebook.png>
 	    </a>
 
-	    <a  href="https://twitter.com/intent/tweet?text=%e3%83%99%e3%82%a4%e3%82%ba%e3%81%8b%e3%82%89%e7%9c%ba%e3%82%81%e3%82%8bMAP%e6%8e%a8%e5%ae%9a%e3%81%af%e8%b1%8a%e6%b4%b2%e3%81%ae%e9%ab%98%e5%b1%a4%e3%83%93%e3%83%ab%e3%81%8b%e3%82%89%e7%9c%ba%e3%82%81%e3%82%8b%e6%9d%b1%e4%ba%ac%e6%b9%be%e3%82%88%e3%82%8a%e3%82%82%e7%be%8e%e3%81%97%e3%81%84%e3%81%ae%e3%81%8b%e3%80%82&url=%2520%2fposts%2fbayes_map%2f"
+	    <a  href="https://twitter.com/intent/tweet?text=%e3%83%99%e3%82%a4%e3%82%ba%e3%81%8b%e3%82%89%e7%9c%ba%e3%82%81%e3%82%8bMAP%e6%8e%a8%e5%ae%9a%e3%81%af%e8%b1%8a%e6%b4%b2%e3%81%ae%e9%ab%98%e5%b1%a4%e3%83%93%e3%83%ab%e3%81%8b%e3%82%89%e7%9c%ba%e3%82%81%e3%82%8b%e6%9d%b1%e4%ba%ac%e6%b9%be%e3%82%88%e3%82%8a%e3%82%82%e7%be%8e%e3%81%97%e3%81%84%e3%81%ae%e3%81%8b%e3%80%82&url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fbayes_map%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Twitter. Opens in a new window." >
-	        <img src=/%20/img/icons/45px/twitter.png>
+	        <img src=/whoami/img/icons/45px/twitter.png>
 	    </a>
 
-		<a  href="http://www.reddit.com/submit?url=%2520%2fposts%2fbayes_map%2f"
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fbayes_map%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Reddit. Opens in a new window." >
-	        <img src=/%20/img/icons/45px/reddit.png>
+	        <img src=/whoami/img/icons/45px/reddit.png>
 	    </a>
 
-	    <a  href="http://pinterest.com/pin/create/button/?url=%2520%2fposts%2fbayes_map%2f"
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fbayes_map%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Pinterest. Opens in a new window." >
-	        <img src=/%20/img/icons/45px/pinterest.png>
+	        <img src=/whoami/img/icons/45px/pinterest.png>
 	    </a>
 
-	    <a  href="http://www.tumblr.com/share/link?url=%2520%2fposts%2fbayes_map%2f"
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fbayes_map%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Tumblr. Opens in a new window." >
-	        <img src=/%20/img/icons/45px/tumblr.png>
+	        <img src=/whoami/img/icons/45px/tumblr.png>
 	    </a>
 
-		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=%2520%2fposts%2fbayes_map%2f
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fbayes_map%2f
 			&title=%e3%83%99%e3%82%a4%e3%82%ba%e3%81%8b%e3%82%89%e7%9c%ba%e3%82%81%e3%82%8bMAP%e6%8e%a8%e5%ae%9a%e3%81%af%e8%b1%8a%e6%b4%b2%e3%81%ae%e9%ab%98%e5%b1%a4%e3%83%93%e3%83%ab%e3%81%8b%e3%82%89%e7%9c%ba%e3%82%81%e3%82%8b%e6%9d%b1%e4%ba%ac%e6%b9%be%e3%82%88%e3%82%8a%e3%82%82%e7%be%8e%e3%81%97%e3%81%84%e3%81%ae%e3%81%8b%e3%80%82&summary=%e6%9c%ac%e8%a8%98%e4%ba%8b%e3%81%a7%e3%81%af%ef%bc%8c%e3%83%99%e3%82%a4%e3%82%ba%e3%81%ae%e6%9e%a0%e7%b5%84%e3%81%bf%e3%81%a7LASSO%e5%9b%9e%e5%b8%b0%e3%82%84Ridge%e5%9b%9e%e5%b8%b0%e3%81%ab%e4%bb%a3%e8%a1%a8%e3%81%95%e3%82%8c%e3%82%8b%ef%bc%8c%e6%ad%a3%e5%89%87%e5%8c%96%e4%bb%98%e3%81%8d%e6%9c%80%e5%b0%8f%e4%ba%8c%e4%b9%97%e6%b3%95%e3%82%92%e7%9c%ba%e3%82%81%e3%81%a6%e3%81%bf%e3%81%be%e3%81%99%ef%bc%8e%20%e6%ad%a3%e5%89%87%e5%8c%96%e3%81%af%e6%a9%9f%e6%a2%b0%e5%ad%a6%e7%bf%92%e3%82%92%e5%ad%a6%e3%81%b6%e3%81%a8%e6%97%a9%e3%81%84%e6%ae%b5%e9%9a%8e%e3%81%a7%e5%87%ba%e3%81%a6%e3%81%8f%e3%82%8b%ef%bc%8c%e9%81%8e%e5%ad%a6%e7%bf%92%e3%82%92%e6%8a%91%e5%88%b6%e3%81%99%e3%82%8b%e3%81%9f%e3%82%81%e3%81%ae%e3%83%86%e3%82%af%e3%83%8b%e3%83%83%e3%82%af%e3%81%a7%e3%81%99%e3%82%88%e3%81%ad%ef%bc%8e%20%e3%81%93%e3%81%ae%e6%ad%a3%e5%89%87%e5%8c%96%e3%82%82%e5%ae%9f%e3%81%af%e3%83%99%e3%82%a4%e3%82%ba%e3%81%ae%e6%9e%a0%e7%b5%84%e3%81%bf%e3%81%a7%e8%a6%8b%e3%82%8b%e3%81%a8%ef%bc%8cMAP%ef%bc%88%e4%ba%8b%e5%be%8c%e7%a2%ba%e7%8e%87%e6%9c%80%e5%a4%a7%e5%8c%96%ef%bc%9aMaximum%20a%20posteriori%ef%bc%89%e6%8e%a8%e5%ae%9a%e3%81%ab%e7%9b%b8%e5%bd%93%e3%81%97%e3%81%be%e3%81%99%ef%bc%8e%20%e3%80%8c%e5%bd%93%e3%81%9f%e3%82%8a%e5%89%8d%e3%81%98%e3%82%83%e3%82%93%e3%80%8d%e3%81%a8%e6%80%9d%e3%81%a3%e3%81%9f%e6%96%b9%e3%81%ab%e3%81%af%e4%b8%8d%e6%af%9b%e3%81%aa%e8%a8%98%e4%ba%8b%e3%81%ab%e3%81%aa%e3%82%8a%e3%81%be%e3%81%99%e3%81%8c%ef%bc%8c%e6%98%af%e9%9d%9e%e6%9c%80%e5%be%8c%e3%81%be%e3%81%a7%e8%aa%ad%e3%82%93%e3%81%a7%e3%81%84%e3%81%9f%e3%81%a0%e3%81%91%e3%82%8b%e3%81%a8%e5%b9%b8%e3%81%84%e3%81%a7%e3%81%99%ef%bc%8e%0a1.%20%e3%83%99%e3%82%a4%e3%82%ba%e6%8e%a8%e8%ab%96%ef%bc%88Bayesian%20Inference%ef%bc%89%20%e3%83%99%e3%82%a4%e3%82%ba%e6%8e%a8%e8%ab%96%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6%e3%81%af%e6%b8%a1%e8%be%ba%e5%85%88%e7%94%9f%e3%81%ae%e3%81%93%e3%81%a1%e3%82%89%e3%81%8c%e8%a9%b3%e3%81%97%e3%81%84%e3%81%a7%e3%81%99%ef%bc%8e%20%e4%b8%8e%e3%81%88%e3%82%89%e3%82%8c%e3%81%9f%e3%83%87%e3%83%bc%e3%82%bf%20%24x%5en%3d%28x_1%2c%5ccdots%2cx_n%29%2c~%20x_i%5cin%5cmathbb%20R%5eN%24%20%e3%81%af%e7%9c%9f%e3%81%ae%e7%a2%ba%e7%8e%87%e5%88%86%e5%b8%83%24q%28x%29%24%e3%81%abi.i.d%e3%81%ab%e5%be%93%e3%81%86%e7%a2%ba%e7%8e%87%e5%a4%89%e6%95%b0%20%24X_i%5cin%5cmathbb%20R%5eN%2c~i%3d1%2c%5ccdots%2cn%24%20%e3%81%ae%e5%ae%9f%e7%8f%be%e5%80%a4%e3%81%a8%e8%80%83%e3%81%88%e3%81%be%e3%81%99%ef%bc%8e%20%e3%81%a4%e3%81%be%e3%82%8a%ef%bc%8c%e3%83%87%e3%83%bc%e3%82%bf%e3%81%ae%e5%90%8c%e6%99%82%e5%88%86%e5%b8%83%e3%81%af%20%24%24%20q%28x%5en%29%3d%5cprod_%7bi%3d1%7d%5enq%28x_i%29%20%3dq%28x_1%29q%28x_2%29%5ccdots%20q%28x_n%29%2c%20%24%24%20%e3%81%a8%e3%81%aa%e3%82%8a%e3%81%be%e3%81%99%ef%bc%8e%20%e3%81%93%e3%81%93%e3%81%a7%ef%bc%8c%e7%9c%9f%e3%81%ae%e5%88%86%e5%b8%83%20%24q%28x%29%24%20%e3%81%af%e7%9f%a5%e3%82%8b%e3%81%93%e3%81%a8%e3%81%ae%e3%81%a7%e3%81%8d%e3%81%aa%e3%81%84%e3%82%82%e3%81%ae%e3%81%a8%e3%81%97%e3%81%a6%e8%80%83%e3%81%88%e3%81%be%e3%81%99%ef%bc%8e%20%e3%83%99%e3%82%a4%e3%82%ba%e6%8e%a8%e8%ab%96%e3%81%a8%e3%81%af%ef%bc%8c%e7%9c%9f%e3%81%ae%e5%88%86%e5%b8%83%20%24q%28x%29%24%20%e3%82%92%e4%b8%8e%e3%81%88%e3%82%89%e3%82%8c%e3%81%9f%e3%83%87%e3%83%bc%e3%82%bf%20%24x%5en%24%20%e3%81%8b%e3%82%89%e6%8e%a8%e6%b8%ac%e3%81%99%e3%82%8b%e3%81%93%e3%81%a8%e3%82%92%e6%8c%87%e3%81%97%e3%81%be%e3%81%99%ef%bc%8e%0a%e3%81%9d%e3%82%8c%e3%81%a7%e3%81%af%ef%bc%8c%e5%85%b7%e5%90%88%e7%9a%84%e3%81%ab%e3%81%a9%e3%81%86%e3%82%84%e3%81%a3%e3%81%a6%e6%8e%a8%e6%b8%ac%e3%82%92%e8%a1%8c%e3%81%86%e3%81%ae%e3%81%a7%e3%81%97%e3%82%87%e3%81%86%e3%81%8b%ef%bc%9f%20%e3%81%93%e3%81%93%e3%81%a7%ef%bc%8c%e4%ba%ba%e9%96%93%e3%81%af%e3%83%91%e3%83%a9%e3%83%a1%e3%83%bc%e3%82%bf%20%24w%5cin%20W%5csubset%20%5cmathbb%20R%5ed%24%20%e3%81%ab%e3%82%88%e3%81%a3%e3%81%a6%e5%bd%a2%e7%8a%b6%e3%81%8c%e6%b1%ba%e5%ae%9a%e3%81%99%e3%82%8b%ef%bc%8c%20%24x%5cin%5cmathbb%20R%5eN%24%20%e4%b8%8a%e3%81%ae%e6%9d%a1%e4%bb%b6%e4%bb%98%e3%81%8d%e7%a2%ba%e7%8e%87%e5%88%86%e5%b8%83%20%24p%28x%7cw%29%24%20%28%e7%a2%ba%e7%8e%87%e3%83%a2%e3%83%87%e3%83%ab%29%20%e3%81%a8%20%24w%5cin%20W%24%20%e4%b8%8a%e3%81%ae%e7%a2%ba%e7%8e%87%e5%88%86%e5%b8%83%20%24%5cvarphi%28w%29%24%20%28%e4%ba%8b%e5%89%8d%e5%88%86%e5%b8%83%29%20%e3%82%92%e7%94%a8%e6%84%8f%e3%81%97%e3%81%be%e3%81%99%ef%bc%8e%20%e6%b8%a1%e8%be%ba%e5%85%88%e7%94%9f%e3%81%ae%e6%9c%ac%e3%81%a7%e3%81%af%ef%bc%8c%e9%80%86%e6%b8%a9%e5%ba%a6%20%24%5cbeta%24%20%e3%81%a7%e3%81%ae%e4%ba%8b%e5%be%8c%e7%a2%ba%e7%8e%87%e3%81%8c%e7%99%bb%e5%a0%b4%e3%81%97%e3%81%be%e3%81%99%e3%81%8c%ef%bc%8c%e6%9c%ac%e8%a8%98%e4%ba%8b%e3%81%a7%e3%81%af%ef%bc%8c%e3%83%87%e3%83%bc%e3%82%bf%20%24x%5en%24%20%e3%81%8c%e4%b8%8e%e3%81%88%e3%82%89%e3%82%8c%e3%81%9f%e3%81%a8%e3%81%8d%e3%81%ae%ef%bc%8c%e3%83%91%e3%83%a9%e3%83%a1%e3%83%bc%e3%82%bf%20%24w%24%20%e3%81%ae%e4%ba%8b%e5%be%8c%e7%a2%ba%e7%8e%87%20%24p%28w%7cX%5en%29%24%20%e3%82%92%e4%b8%80%e8%88%ac%e7%9a%84%e3%81%aa%e3%83%99%e3%82%a4%e3%82%ba%e7%b5%b1%e8%a8%88%e3%81%ae%e6%95%99%e7%a7%91%e6%9b%b8%e3%81%ab%e5%90%88%e3%82%8f%e3%81%9b%e3%81%a6%e4%bb%a5%e4%b8%8b%e3%81%a7%e5%ae%9a%e7%be%a9%e3%81%97%e3%81%be%e3%81%99%ef%bc%8e&source=rafed123.github.io"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on LinkedIn. Opens in a new window." >
-	        <img src=/%20/img/icons/45px/linkedin.png>
+	        <img src=/whoami/img/icons/45px/linkedin.png>
 	    </a>
 
-	    <a  href="mailto:?subject=%e3%83%99%e3%82%a4%e3%82%ba%e3%81%8b%e3%82%89%e7%9c%ba%e3%82%81%e3%82%8bMAP%e6%8e%a8%e5%ae%9a%e3%81%af%e8%b1%8a%e6%b4%b2%e3%81%ae%e9%ab%98%e5%b1%a4%e3%83%93%e3%83%ab%e3%81%8b%e3%82%89%e7%9c%ba%e3%82%81%e3%82%8b%e6%9d%b1%e4%ba%ac%e6%b9%be%e3%82%88%e3%82%8a%e3%82%82%e7%be%8e%e3%81%97%e3%81%84%e3%81%ae%e3%81%8b%e3%80%82&amp;body=Check out this site %2520%2fposts%2fbayes_map%2f"
+	    <a  href="mailto:?subject=%e3%83%99%e3%82%a4%e3%82%ba%e3%81%8b%e3%82%89%e7%9c%ba%e3%82%81%e3%82%8bMAP%e6%8e%a8%e5%ae%9a%e3%81%af%e8%b1%8a%e6%b4%b2%e3%81%ae%e9%ab%98%e5%b1%a4%e3%83%93%e3%83%ab%e3%81%8b%e3%82%89%e7%9c%ba%e3%82%81%e3%82%8b%e6%9d%b1%e4%ba%ac%e6%b9%be%e3%82%88%e3%82%8a%e3%82%82%e7%be%8e%e3%81%97%e3%81%84%e3%81%ae%e3%81%8b%e3%80%82&amp;body=Check out this site https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fbayes_map%2f"
 	        title="Share via Email. Opens in a new window." >
-	        <img src=/%20/img/icons/45px/mail.png>
+	        <img src=/whoami/img/icons/45px/mail.png>
 	    </a>
 	</div>
 </div>
