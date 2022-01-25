@@ -17,9 +17,16 @@
 <link rel="stylesheet" href="{{ "/css/font-awesome.min.css" | relURL }}">
 <link rel="stylesheet" href="{{ "/css/bulma.min.css" | relURL }}">
 
-{{ if not (in (string .Site.BaseURL) "localhost") }}
-{{ template "_internal/google_analytics_async.html" . }}
-{{ end }}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6379MX42G5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6379MX42G5');
+</script>
+
 
 <script src={{ "/js/ramium.js" | relURL }}></script>
 <link rel="stylesheet" href={{ "/css/ramium.css" | relURL }}>
