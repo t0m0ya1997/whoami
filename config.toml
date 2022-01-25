@@ -69,7 +69,7 @@ enableemoji = true
         [privacy.disqus]
             disable = true
         [privacy.googleAnalytics]
-            disable = false
+            disable = true
         [privacy.instagram]
             disable = true
         [privacy.twitter]
