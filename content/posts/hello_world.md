@@ -7,7 +7,7 @@ description: "はじめまして．社会人になる，なってしまう，こ
 image: "/image/profile.jpg"
 draft: false
 showDate: true
-lastmod: 2022-1-24
+lastmod: 2022-1-22
 ---
 
 はじめまして．
