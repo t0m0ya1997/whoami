@@ -3,7 +3,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/tags/bayesian-inference/</loc>
+	    <loc>%20/tags/bayesian-inference/</loc>
 	    <lastmod>2022-01-24</lastmod>
         
 
@@ -14,7 +14,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/tags/c&#43;&#43;/</loc>
+	    <loc>%20/tags/c&#43;&#43;/</loc>
 	    <lastmod>2022-01-24</lastmod>
         
 
@@ -25,7 +25,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/posts/c&#43;&#43;2npy/</loc>
+	    <loc>%20/posts/c&#43;&#43;2npy/</loc>
 	    <lastmod>2022-01-24</lastmod>
         
 
@@ -36,7 +36,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/tags/machine-learning/</loc>
+	    <loc>%20/tags/machine-learning/</loc>
 	    <lastmod>2022-01-24</lastmod>
         
 
@@ -47,7 +47,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/tags/mcmc/</loc>
+	    <loc>%20/tags/mcmc/</loc>
 	    <lastmod>2022-01-24</lastmod>
         
 
@@ -58,7 +58,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/tags/metropolis-hastings/</loc>
+	    <loc>%20/tags/metropolis-hastings/</loc>
 	    <lastmod>2022-01-24</lastmod>
         
 
@@ -69,7 +69,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/posts/</loc>
+	    <loc>%20/posts/</loc>
 	    <lastmod>2022-01-24</lastmod>
         
 
@@ -80,7 +80,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/tags/programming/</loc>
+	    <loc>%20/tags/programming/</loc>
 	    <lastmod>2022-01-24</lastmod>
         
 
@@ -91,7 +91,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/tags/python/</loc>
+	    <loc>%20/tags/python/</loc>
 	    <lastmod>2022-01-24</lastmod>
         
 
@@ -102,7 +102,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/tags/</loc>
+	    <loc>%20/tags/</loc>
 	    <lastmod>2022-01-24</lastmod>
         
 
@@ -113,7 +113,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/posts/xorshiro/</loc>
+	    <loc>%20/posts/xorshiro/</loc>
 	    <lastmod>2022-01-24</lastmod>
         
 
@@ -124,7 +124,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/posts/metropolis_hastings/</loc>
+	    <loc>%20/posts/metropolis_hastings/</loc>
 	    <lastmod>2022-01-24</lastmod>
         
 
@@ -135,7 +135,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/tags/maethmatical-optimization/</loc>
+	    <loc>%20/tags/maethmatical-optimization/</loc>
 	    <lastmod>2022-01-21</lastmod>
         
 
@@ -146,7 +146,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/tags/regression/</loc>
+	    <loc>%20/tags/regression/</loc>
 	    <lastmod>2022-01-21</lastmod>
         
 
@@ -157,7 +157,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/posts/hello_world/</loc>
+	    <loc>%20/posts/hello_world/</loc>
 	    <lastmod>2022-01-21</lastmod>
         
 
@@ -168,7 +168,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/posts/bayes_map/</loc>
+	    <loc>%20/posts/bayes_map/</loc>
 	    <lastmod>2022-01-21</lastmod>
         
 
@@ -179,7 +179,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/author/</loc>
+	    <loc>%20/author/</loc>
 	    <lastmod>2020-04-06</lastmod>
         
 
@@ -194,7 +194,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/sections/</loc>
+	    <loc>%20/sections/</loc>
 	    <lastmod>2020-04-06</lastmod>
         
 
@@ -205,7 +205,7 @@
       
       
 	  <url>
-	    <loc>https://example.com/</loc>
+	    <loc>%20/</loc>
 	    <lastmod>2020-03-25</lastmod>
         
 
