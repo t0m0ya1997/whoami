@@ -8,48 +8,12 @@
     <language>jp</language>
     <lastBuildDate>Wed, 25 Mar 2020 04:52:30 +0600</lastBuildDate><atom:link href="https://t0m0ya1997.github.io/whoami/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>C&#43;&#43;配列を.npy形式で保存したい癖の強いあなたへ。</title>
-      <link>https://t0m0ya1997.github.io/whoami/posts/c&#43;&#43;2npy/</link>
-      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://t0m0ya1997.github.io/whoami/posts/c&#43;&#43;2npy/</guid>
-      <description>この記事では，C++で数値シミュレーションを行っている方向けに，Python の numpy</description>
-    </item>
-    
-    <item>
-      <title>XorShiftという乱数生成法が早いらしい。</title>
-      <link>https://t0m0ya1997.github.io/whoami/posts/xorshiro/</link>
-      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://t0m0ya1997.github.io/whoami/posts/xorshiro/</guid>
-      <description>参考文献</description>
-    </item>
-    
-    <item>
-      <title>メトロポリス法ってなんだし。</title>
-      <link>https://t0m0ya1997.github.io/whoami/posts/metropolis_hastings/</link>
-      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://t0m0ya1997.github.io/whoami/posts/metropolis_hastings/</guid>
-      <description>本記事では，マルコフ連鎖モンテカルロ法（Markov Chain Monte Carlo: MCMC）を実現する手</description>
-    </item>
-    
-    <item>
       <title>こんにちは。黒かりんとうが美味しいと思えるようになりました。</title>
       <link>https://t0m0ya1997.github.io/whoami/posts/hello_world/</link>
       <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://t0m0ya1997.github.io/whoami/posts/hello_world/</guid>
       <description>はじめまして． 社会人になる，なってしまう，ことから，ブログを移転しました． 社会人</description>
-    </item>
-    
-    <item>
-      <title>ベイズから眺めるMAP推定は豊洲の高層ビルから眺める東京湾よりも美しいのか。</title>
-      <link>https://t0m0ya1997.github.io/whoami/posts/bayes_map/</link>
-      <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://t0m0ya1997.github.io/whoami/posts/bayes_map/</guid>
-      <description>本記事では，ベイズの枠組みでLASSO回帰やRidge回帰に代表される，正則化付</description>
     </item>
     
     <item>

@@ -5,6 +5,7 @@ tags: [Bayesian Inference, Machine Learning, MCMC, Metropolis-Hastings]
 description: "本記事では，マルコフ連鎖モンテカルロ法（Markov Chain Monte Carlo: MCMC）を実現する手法の１つである，メトロポリス法（Metropolis-Hastings Method）について解説してみます．また，数値実験を行います．"
 math: true
 image: "/image/profile.jpg"
+draft: true
 ---
 
 本記事では，マルコフ連鎖モンテカルロ法（Markov Chain Monte Carlo: MCMC）を実現する手法の１つである，メトロポリス法（Metropolis-Hastings Method）について解説してみます．

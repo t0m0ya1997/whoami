@@ -6,6 +6,7 @@ description: "この記事では，C++で数値シミュレーションを行っ
 math: true
 image: "/image/profile.jpg"
 last-mod: 2022-1-24
+draft: true
 ---
 
 この記事では，`C++`で数値シミュレーションを行っている方向けに，`Python` の `numpy` で使える`.npy`形式で C++配列`vector` を保存する方法を紹介します．

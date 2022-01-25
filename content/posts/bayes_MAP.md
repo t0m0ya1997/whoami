@@ -5,6 +5,7 @@ tags: [Bayesian Inference, Machine Learning, Mathematical Optimization, Regressi
 description: "本記事では，ベイズの枠組みでLASSO回帰やRidge回帰に代表される，正則化付き最小二乗法を眺めてみます．"
 math: true
 image: "/image/Bayes_MAP_head.png"
+draft: true
 ---
 
 本記事では，ベイズの枠組みでLASSO回帰やRidge回帰に代表される，正則化付き最小二乗法を眺めてみます．
