@@ -1,6 +1,6 @@
 ---
 title: "TH's Blog"
-subtitle: "Book, Camera, sometimes Coffee"
+subtitle: "Book, Camera, and sometimes Coffee"
 date: 2020-03-25T04:52:30+06:00
 draft: false
 ---
