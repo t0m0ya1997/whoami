@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming on TH&#39;s Blog</title>
+    <link>https://example.com/tags/programming/</link>
+    <description>Recent content in Programming on TH&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp</language>
+    <lastBuildDate>Mon, 24 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43;配列を.npy形式で保存したい癖の強いあなたへ。</title>
+      <link>https://example.com/posts/c&#43;&#43;2npy/</link>
+      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/posts/c&#43;&#43;2npy/</guid>
+      <description>この記事では，C++で数値シミュレーションを行っている方向けに，Python の numpy で使える.npy形式で C++配列vector を保存する方法を紹介します． 結論だけをお求めの方は最下部に numpy.hpp を掲載しておりますので，そちらをコピペなりしてお手元で使ってみてください．
+私はMCMCなどの数値シミュレーションを行う際に，計算時間の観点からPythonではなくC++を使っています． しかしながら，実験結果の可視化を行うにはバイナリコードで結果を書き出して，gnuplotを用いるなど，私的には敷居が高く感じています． 一方で，Pythonのmatplotlibというライブラリを用いると，その学習コストが低い反面，論文にも使えるような，それっぽい図が簡単に描けてしまいます． そこで，C++で作成したvector（多次元も含む）を，Pythonのnumpyで簡単に読み書きができる.npy形式でデータのやり取りができると最高なのです．
+今回紹介するのは，C++ の vector を.npy形式で保存するSaveNpy関数と，Python を用いて生成した.npy形式で保存された多次元配列を C++ 内で多次元 vector として読み込むLoadNpy関数です． 実装はこちらの記事を大いに参考にさせていただきました． 注意としては，4次元配列までしか対応していないです． 私の場合，4次元で事足りているのですが，4次元よりも大きな次元の配列の入出力が必要でしたら，コードを参考に書き換えてみてください． また，私はint型を使用することもあるため，上記の記事にint型の入出力を加えたものを紹介します．
+ numpy.hpp #pragma once #include &amp;lt;fstream&amp;gt;#include &amp;lt;iostream&amp;gt;#include &amp;lt;string&amp;gt;#include &amp;lt;cstdio&amp;gt;#include &amp;lt;vector&amp;gt; namespace { template &amp;lt;typename .</description>
+    </item>
+    
+    <item>
+      <title>XorShiftという乱数生成法が早いらしい。</title>
+      <link>https://example.com/posts/xorshiro/</link>
+      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/posts/xorshiro/</guid>
+      <description>参考文献 </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Addons on TH&#39;s Blog</title>
+    <link>https://example.com/addons/</link>
+    <description>Recent content in Addons on TH&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp</language>
+    <lastBuildDate>Mon, 06 Apr 2020 02:07:31 +0600</lastBuildDate><atom:link href="https://example.com/addons/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Author</title>
+      <link>https://example.com/author/</link>
+      <pubDate>Mon, 06 Apr 2020 02:07:31 +0600</pubDate>
+      
+      <guid>https://example.com/author/</guid>
+      <description>I am Bay, data scientist in Japan, and interested in Bayesian Inference, Signal Processing, Mathematical Optimization, Machine Learnings, and so on. I want to write something I think about Programming, Books, Cameras, and Research-ish something in everyday life. I do not represent my organization in my remarks.</description>
+    </item>
+    
+    <item>
+      <title>Admin Panel</title>
+      <link>https://example.com/admin/</link>
+      <pubDate>Mon, 06 Apr 2020 02:07:30 +0600</pubDate>
+      
+      <guid>https://example.com/admin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>All Sections</title>
+      <link>https://example.com/sections/</link>
+      <pubDate>Mon, 06 Apr 2020 02:07:30 +0600</pubDate>
+      
+      <guid>https://example.com/sections/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
