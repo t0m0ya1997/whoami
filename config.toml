@@ -11,7 +11,7 @@ theme = "ramium"
 title = "TH's Blog"
 disqusShortname = ""
 googleAnalytics = "G-6379MX42G5"
-summaryLength = 40
+summaryLength = 75
 pluralizeListTitles = false
 enableemoji = true
 

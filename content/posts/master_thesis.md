@@ -1,8 +1,8 @@
 ---
-title: 修士論文を提出しました。
+title: 修士論文を提出しました。もう一度洗濯して、干します。
 date: 2022-01-25
 category: [Life, Research-ish]
-descriotion: "本日，修士論文を提出しました．もう一度洗濯して，干します．"
+descriotion: "先日，修士論文を提出しました．僕の研究した数理モデル，実は僕の生まれた年近くに生まれ，\"彼\"なりの歴史を歩んできたようです．"
 tags: []
 image: "/image/master_thesis.jpg"
 ---
