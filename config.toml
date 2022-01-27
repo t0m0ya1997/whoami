@@ -9,7 +9,7 @@ enableInlineShortcodes = true
 theme = "ramium"
 
 title = "TH's Blog"
-disqusShortname = ""
+disqusShortname = "ths-blog-1"
 googleAnalytics = "G-6379MX42G5"
 summaryLength = 75
 pluralizeListTitles = false
