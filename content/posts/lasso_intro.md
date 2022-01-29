@@ -4,6 +4,7 @@ date: 2022-01-28
 tags: [Machine Learning, Mathematical Optimization]
 image: "/image/blog-pic.jpg"
 math: true
+draft: true
 ---
 
 この記事では，連載を通して，LASSOを紹介できたらと思います．

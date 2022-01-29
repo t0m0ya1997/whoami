@@ -5,6 +5,7 @@ categories: [Research-ish, Programming]
 tags: [Machine Learning, Mathematical Optimization]
 image: "/image/blog-pic.jpg"
 math: true
+draft: true
 ---
 
 本記事では，LASSOへの足掛かりとして，線形回帰モデルを紹介します．
