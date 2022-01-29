@@ -6,23 +6,14 @@
     <description>Recent content in C&#43;&#43; on TH&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Mon, 24 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://t0m0ya1997.github.io/whoami/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://t0m0ya1997.github.io/whoami/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>C&#43;&#43;配列を.npy形式で保存したい癖の強いあなたへ。</title>
-      <link>https://t0m0ya1997.github.io/whoami/posts/c&#43;&#43;2npy/</link>
-      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      <title>C&#43;&#43;のvectorを.npy形式で保存したいあなたへ。</title>
+      <link>https://t0m0ya1997.github.io/whoami/posts/c&#43;&#43;2npy_lib/</link>
+      <pubDate>Fri, 28 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://t0m0ya1997.github.io/whoami/posts/c&#43;&#43;2npy/</guid>
-      <description>この記事では，C++で数値シミュレーションを行っている方向けに，Python の numpy</description>
-    </item>
-    
-    <item>
-      <title>XorShiftという乱数生成法が早いらしい。</title>
-      <link>https://t0m0ya1997.github.io/whoami/posts/xorshiro/</link>
-      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://t0m0ya1997.github.io/whoami/posts/xorshiro/</guid>
-      <description>参考文献</description>
+      <guid>https://t0m0ya1997.github.io/whoami/posts/c&#43;&#43;2npy_lib/</guid>
+      <description>この記事では，C++で数値シミュレーションを行っている方向けに，Python の numpy で使える.npy形式で C++配列vector を保存する方法を紹介します</description>
     </item>
     
   </channel>

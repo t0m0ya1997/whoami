@@ -6,7 +6,34 @@
     <description>Recent content in Posts on TH&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Thu, 27 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://t0m0ya1997.github.io/whoami/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://t0m0ya1997.github.io/whoami/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43;のvectorを.npy形式で保存したいあなたへ。</title>
+      <link>https://t0m0ya1997.github.io/whoami/posts/c&#43;&#43;2npy_lib/</link>
+      <pubDate>Fri, 28 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://t0m0ya1997.github.io/whoami/posts/c&#43;&#43;2npy_lib/</guid>
+      <description>この記事では，C++で数値シミュレーションを行っている方向けに，Python の numpy で使える.npy形式で C++配列vector を保存する方法を紹介します</description>
+    </item>
+    
+    <item>
+      <title>LASSO と僕は同い年：① 線形回帰</title>
+      <link>https://t0m0ya1997.github.io/whoami/posts/lasso_ls/</link>
+      <pubDate>Fri, 28 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://t0m0ya1997.github.io/whoami/posts/lasso_ls/</guid>
+      <description>本記事では，LASSOへの足掛かりとして，線形回帰モデルを紹介します． 線形回帰モデルはとてもシンプルなモデルであり 直線から始める線形回帰モデル まずは簡</description>
+    </item>
+    
+    <item>
+      <title>LASSOと僕は同い年：⓪</title>
+      <link>https://t0m0ya1997.github.io/whoami/posts/lasso_intro/</link>
+      <pubDate>Fri, 28 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://t0m0ya1997.github.io/whoami/posts/lasso_intro/</guid>
+      <description>この記事では，連載を通して，LASSOを紹介できたらと思います． LASSO はLeast Absolute Soft Shrinkage Operator の略です． 機械学習において，スパースモデリングの文脈でよく聞く手</description>
+    </item>
+    
     <item>
       <title>修士論文を提出しました。もう一度洗濯して、干します。</title>
       <link>https://t0m0ya1997.github.io/whoami/posts/master_thesis/</link>

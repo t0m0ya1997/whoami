@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="{{ "/css/font-awesome.min.css" | relURL }}">
 <link rel="stylesheet" href="{{ "/css/bulma.min.css" | relURL }}">
 
+{{ if not (in (string .Site.BaseURL) "localhost") }}
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6379MX42G5"></script>
 <script>
@@ -26,6 +27,7 @@
 
   gtag('config', 'G-6379MX42G5');
 </script>
+{{ end }}
 
 
 <script src={{ "/js/ramium.js" | relURL }}></script>

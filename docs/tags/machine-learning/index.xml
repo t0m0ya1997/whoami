@@ -6,23 +6,23 @@
     <description>Recent content in Machine Learning on TH&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Mon, 24 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://t0m0ya1997.github.io/whoami/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://t0m0ya1997.github.io/whoami/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>メトロポリス法ってなんだし。</title>
-      <link>https://t0m0ya1997.github.io/whoami/posts/metropolis_hastings/</link>
-      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      <title>LASSO と僕は同い年：① 線形回帰</title>
+      <link>https://t0m0ya1997.github.io/whoami/posts/lasso_ls/</link>
+      <pubDate>Fri, 28 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://t0m0ya1997.github.io/whoami/posts/metropolis_hastings/</guid>
-      <description>本記事では，マルコフ連鎖モンテカルロ法（Markov Chain Monte Carlo: MCMC）を実現する手</description>
+      <guid>https://t0m0ya1997.github.io/whoami/posts/lasso_ls/</guid>
+      <description>本記事では，LASSOへの足掛かりとして，線形回帰モデルを紹介します． 線形回帰モデルはとてもシンプルなモデルであり 直線から始める線形回帰モデル まずは簡</description>
     </item>
     
     <item>
-      <title>ベイズから眺めるMAP推定は豊洲の高層ビルから眺める東京湾よりも美しいのか。</title>
-      <link>https://t0m0ya1997.github.io/whoami/posts/bayes_map/</link>
-      <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
+      <title>LASSOと僕は同い年：⓪</title>
+      <link>https://t0m0ya1997.github.io/whoami/posts/lasso_intro/</link>
+      <pubDate>Fri, 28 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://t0m0ya1997.github.io/whoami/posts/bayes_map/</guid>
-      <description>本記事では，ベイズの枠組みでLASSO回帰やRidge回帰に代表される，正則化付</description>
+      <guid>https://t0m0ya1997.github.io/whoami/posts/lasso_intro/</guid>
+      <description>この記事では，連載を通して，LASSOを紹介できたらと思います． LASSO はLeast Absolute Soft Shrinkage Operator の略です． 機械学習において，スパースモデリングの文脈でよく聞く手</description>
     </item>
     
   </channel>
