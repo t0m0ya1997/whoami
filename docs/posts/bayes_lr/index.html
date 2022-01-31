@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head><title>
+    ベイズ線形回帰をおさらいする。僕は果たして大丈夫なのでしょうか。 | 
+    
+    TH&#39;s Blog</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="修士論文審査の前日にして，特に発表には関係のない記事を書きました． 僕には，試験前，締め切り前，など切羽詰まった課題の前に立たされると，その課題以外の課
+    ">
+
+
+<meta property="og:title" content="ベイズ線形回帰をおさらいする。僕は果たして大丈夫なのでしょうか。" />
+<meta property="og:description" content="修士論文審査の前日にして，特に発表には関係のない記事を書きました． 僕には，試験前，締め切り前，など切羽詰まった課題の前に立たされると，その課題以外の課" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://t0m0ya1997.github.io/whoami/posts/bayes_lr/" /><meta property="og:image" content="https://t0m0ya1997.github.io/whoami/image/profile.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-30T00:00:00+00:00" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://t0m0ya1997.github.io/whoami/image/profile.jpg"/>
+
+<meta name="twitter:title" content="ベイズ線形回帰をおさらいする。僕は果たして大丈夫なのでしょうか。"/>
+<meta name="twitter:description" content="修士論文審査の前日にして，特に発表には関係のない記事を書きました． 僕には，試験前，締め切り前，など切羽詰まった課題の前に立たされると，その課題以外の課"/>
+
+<meta itemprop="name" content="ベイズ線形回帰をおさらいする。僕は果たして大丈夫なのでしょうか。">
+<meta itemprop="description" content="修士論文審査の前日にして，特に発表には関係のない記事を書きました． 僕には，試験前，締め切り前，など切羽詰まった課題の前に立たされると，その課題以外の課"><meta itemprop="datePublished" content="2022-01-30T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-01-30T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3625"><meta itemprop="image" content="https://t0m0ya1997.github.io/whoami/image/profile.jpg"/>
+<meta itemprop="keywords" content="Bayesian Estimation,Machine Learning,Python," />
+<link rel="canonical" href="https://t0m0ya1997.github.io/whoami/posts/bayes_lr/" />
+
+<link rel="icon" type="image/png" href="https://t0m0ya1997.github.io/whoamiimage/favicon.ico">
+
+<link rel="stylesheet" href="/whoami/css/font-awesome.min.css">
+<link rel="stylesheet" href="/whoami/css/bulma.min.css">
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6379MX42G5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6379MX42G5');
+</script>
+
+
+
+<script src=/whoami/js/ramium.js></script>
+<link rel="stylesheet" href=/whoami/css/ramium.css>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+    integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+    integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+    integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              
+              
+              delimiters: [
+                  {left: '$$', right: '$$', display: true},
+                  {left: '$', right: '$', display: false},
+                  {left: '\\(', right: '\\)', display: false},
+                  {left: '\\[', right: '\\]', display: true}
+              ],
+              
+              throwOnError : false
+            });
+        });
+    </script>
+
+
+</head>
+
+<body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=/whoami/>
+      
+      <strong>TH&#39;s Blog </strong>
+      
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      
+      
+      <a class="navbar-item" href="/whoami/">Home</a>
+      
+      
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">This Blog</a>
+        <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="/whoami/tags/">All Tags</a>
+          
+          <a class="navbar-item" href="/whoami/sections/">All Sections</a>
+          
+          <a class="navbar-item" href="/whoami/posts/">All Posts</a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <a class="navbar-item" href="/whoami/author/">Author</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <a class="navbar-item navgithub" href="https://github.com/t0m0ya1997/whoami/" target="_blank">
+        <i class="fa fa-github fa-2x"></i>
+      </a>
+      
+
+      
+    </div>
+  </div>
+</nav><div class="columns is-centered">
+        <div id="page-body" class="column is-7">
+
+<div class="content blog">
+    <h1>ベイズ線形回帰をおさらいする。僕は果たして大丈夫なのでしょうか。</h1>
+
+    <div id="infobar" class="level is-mobile">
+        <div class="level-left">
+            
+            <div class="level-item">
+                <p class="subtitle info date">Jan 30, 2022
+                </p>
+            </div>
+            
+
+            <div class="level-item">
+                <p class="subtitle info">
+                    20 mins read
+                </p>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            <div class="tags">
+                
+                <a class="tag is-dark is-rounded" href="/whoami/tags/bayesian-estimation">Bayesian Estimation</a>
+                
+                <a class="tag is-dark is-rounded" href="/whoami/tags/machine-learning">Machine Learning</a>
+                
+                <a class="tag is-dark is-rounded" href="/whoami/tags/python">Python</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tags is-hidden-desktop">
+        
+        <a class="tag is-dark is-rounded" href="/whoami/tags/bayesian-estimation">Bayesian estimation</a>
+        
+        <a class="tag is-dark is-rounded" href="/whoami/tags/machine-learning">Machine learning</a>
+        
+        <a class="tag is-dark is-rounded" href="/whoami/tags/python">Python</a>
+        
+    </div>
+
+    <div class="blog-text">
+        
+        <figure>
+            <img src="/whoami/image/bayes_lr.jpg">
+        </figure>
+        
+
+        <p>修士論文審査の前日にして，特に発表には関係のない記事を書きました．
+僕には，試験前，締め切り前，など切羽詰まった課題の前に立たされると，その課題以外の課題に猛烈に興味を持ったり，普段は開かない，随分前に読んだ本を手に取り，ついつい読んでしまうことが多々あります．
+今日もそんな感じです．</p>
+<p>この記事では，ベイズ線形回帰を紹介します．
+線形回帰モデルとは，$d\in\mathbb N$ 次元入力 $\bm x\in\mathbb R^d$ と回帰係数 $\bm w^d$ の線形結合で実数出力 $y\in\mathbb R$ を予測するモデルで，ノイズを $\epsilon\in\mathbb R$ として，以下の関係を仮定します．</p>
+<p>$$
+y = \bm w^T\bm x + \epsilon \tag{1}
+$$</p>
+<p>これは，$d=1$ のとき「<strong>単回帰</strong>」，$d=2$以上のとき「<strong>重回帰</strong>」と呼ばれるモデルです．
+また，入力変数 $\bm x$ の $m\in\mathbb N$ 個の関数値による特徴ベクトル $\bm \phi(\bm x) = (\phi_1(\bm x),\phi_2(\bm x),\cdots,\phi_m(\bm x))^T$ に対して回帰係数 $\bm w\in\mathbb R^m$ を仮定し，</p>
+<p>$$
+y = \bm w^T\bm \phi(\bm x) + \epsilon \tag{2}
+$$</p>
+<p>として $\bm w$ と $\bm\phi(\bm x)$ の線型結合で出力変数を予測することもあります．
+これもまた，線形回帰と呼ばれます．
+上述した<strong>単回帰</strong>および<strong>重回帰</strong>は，$\bm\phi(\bm x) = \bm x$ とした場合であることがわかります．</p>
+<p>前提として，線形回帰モデルでは，「<mark>入力と出力の関係を表す回帰係数 $\bm w$ を良い感じに定める</mark>」ことが目標となります．</p>
+<hr>
+<h2 id="線形回帰モデルの学習">線形回帰モデルの学習</h2>
+<p>$N\in\mathbb R$ 個の入力・出力の組 $\mathcal D = (\bm x_n,y_n)_{n=1}^N$ が与えられたとします．
+このとき，以下の二乗誤差 $E(\bm w)$ を最小化するように $\bm w$ を決定することがあります．</p>
+<p>$$
+E(\bm w) = \frac{1}{2}\sum_{n=1}^N\left\{y_n - \bm w^T\bm \phi(\bm x_n)\right\}^2 \tag{3}
+$$</p>
+<p>これは，<strong>最小二乗法</strong>と呼ばれ，一度は耳にしたことがあるかもしれません．
+この最小二乗法で得られる $\bm w$ は，<mark>ノイズがガウス分布に従うと仮定したもとでの最尤推定量 $\bm w_{ML}$ と一致すること</mark>が次から分ります．</p>
+<p>まず，便宜的に 入力・出力のデータ $\mathcal D$ が与えられたもとでの，$\bm w$ の確率分布 $p(\bm w|\mathcal D)$ を仮定します．
+これを，$\mathcal D$ を観測したもとでの $\bm w$ の<strong>事後確率/事後分布</strong>と呼びます．
+ベイズの定理から</p>
+<p>$$
+p(\bm w|\mathcal D) = \frac{p(\mathcal D|\bm w)p(\bm w)}{p(\mathcal D)} \propto p(\mathcal D|\bm w)p(\bm w) \tag{4}
+$$</p>
+<p>が得られます．
+ここで，$p(\mathcal D|\bm w)$ は<strong>尤度関数</strong>，$p(\bm w)$ は<strong>事前確率/事前分布</strong>と呼ばれます．
+最尤推定とは，尤度関数を最大化させる $\bm w$ を求めることを指します．
+では，ノイズが平均 $0$, 分散 $\sigma_{\epsilon}^2$ のガウス分布に独立に従うと仮定すると，尤度関数は</p>
+<p>$$
+\begin{aligned}
+p(\mathcal D|\bm w)
+&amp; = \prod_{n=1}^N\mathcal N(\epsilon_n|0,\sigma_{\epsilon}^2)
+= \prod_{n=1}^N\mathcal N(y_n-\bm w^T\bm\phi(\bm x_n)|0,\sigma_{\epsilon}^2) \cr
+&amp; = (2\pi\sigma_{\epsilon}^2)^{-N/2}\prod_{n=1}^N\exp\left(\frac{(y_n-\bm w^T\bm\phi(\bm x_n))^2}{2\sigma_{\epsilon}^2}\right)
+\end{aligned}
+\tag{5}
+$$</p>
+<p>となります．
+この尤度関数を最大化することは，対数をとり符号反転をした $-\log p(\mathcal D|\bm w)$ を $\bm w$ について最小化することと等価です．
+つまり，</p>
+<p>$$
+-\log p(\mathcal D|\bm w) = \frac{1}{2\sigma^2}\sum_{n=1}^N\left\{y_n-\bm w^T\bm\phi(\bm x_n)\right\}^2 + \frac{N}{2}\log(2\pi\sigma^2) \tag{6}
+$$</p>
+<p>を $\bm w$ について最小化することと等価です．
+この式の $\bm w$ に非依存な項を除くと，結局，上で示した $E(\bm w)$ を最小化することに相当します．</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span></p><p>補足となりますが，最尤推定の他にも $\bm w$ の推定方法が存在します．
+<strong>ベイズ推論</strong>では，式(4)に示す事後確率 $p(\bm w|\mathcal D)$ を推論します．
+また，式(4)に示す事後確率を最大化するような $\bm w$ を推定値とする手法を<strong>MAP推定</strong>（事後確率最大化推定）と呼びます．
+詳細については<a href="">ベイズ統計の理論と方法</a>（1.3 さまざまな推測方法） が参考になります．</p></div>
+<hr>
+<h2 id="ベイズ線形回帰">ベイズ線形回帰</h2>
+<p>本題のベイズ線形回帰の説明をします．
+先程と同じように，ノイズは平均 $0$，分散 $\sigma_{\epsilon}^2$ のガウス分布に従うと仮定すると，尤度関数は式(5)のようになります．
+ベイズ線形回帰を行うために，回帰係数の事前分布 $p(\bm w)$ を仮定する必要があります．
+事前分布を，平均 $\bm 0$，分散・共分散行列が $\sigma_w^2I$のガウス分布</p>
+<p>$$
+p(\bm w) = \mathcal N(\bm w|\bm 0,\sigma_w^2I)
+\tag{7}
+$$</p>
+<p>であるとします．</p>
+<p>詳細は省きますが，$\bm w$ の事後分布 $p(\bm w|\mathcal D)$ は以下のガウス分布となることがわかります．</p>
+<p>$$
+p(\bm w|\mathcal D) = \mathcal N(\bm w|\hat{\bm\mu}, \hat{\Sigma})
+\tag{8}
+$$
+ここで，</p>
+<p>$$
+\hat{\Sigma}^{-1} = \sigma_{\epsilon}^{-2}\sum_{n=1}^N\bm\phi(\bm x_n)\bm\phi(\bm x_n)^T + \sigma_w^{-2}I
+\tag{9}
+$$</p>
+<p>$$
+\hat{\bm\mu} = \sigma_{\epsilon}^{-2}\hat{\Sigma}\sum_{n=1}^Ny_n\bm\phi(\bm x_n)
+\tag{10}
+$$</p>
+<p>です．
+このように，ベイズ線形回帰では，回帰係数 $\bm w$ の事後確率 $p(\bm w|\mathcal D)$ が得られます．
+点推定である，<strong>最尤推定</strong>や<strong>MAP推定</strong>とは異なり，確率分布が得られています．
+これにより，パラメータ $\bm w$ の不確実性の評価が可能になります．</p>
+<div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span></p><p>今回は，ノイズと$\bm w$ の事前分布 $p(\bm w)$ をガウス分布と仮定することで，幸いにも事後分布が解析的に解ける「<strong>可解モデル</strong>」となりました．
+「なぜガウス分布か？」という疑問を持った方は，本記事の内容を超えてしまいますが，「指数型分布とその共役分布」について調べてみるとより理解が深まると思います．
+また，<a href="">ベイズ統計の理論と方法</a>（1.2.3 計算できる例） が参考になります．</p>
+<p>しかしながら，現実問題に対して統計モデルを構築しようとすると，可解モデルの範疇には収まらないことがほとんどです．
+多くの場合，解析的には解かせてくれません．
+より一般的に，データ $\mathcal D$ と，パラメータ $\theta$ でパラメトライズされた確率モデル $p(\theta, \mathcal D)$ について考えます．</p>
+<p>例えばマルコフ連鎖モンテカルロ法（<strong>MCMC</strong>：Markov Chain Monte Carlo）を用いて，事後分布 $p(\theta|\mathcal D)$ からのパラメータ $\theta$ のサンプリングを実施することで事後分布を再現することがあります．
+MCMCを使うと，パラメータの積分を含む統計量をサンプリングによる期待値で近似計算することができます．</p>
+<p>また，事後分布を推定する代わりに，解析し易い分布 $q(\theta)$ を考え，事後分布と $q(\theta)$ の形状が近くなるように（KL擬距離が最小となるように） $\theta$ を学習することもあります(<strong>変分ベイズ法</strong>)．</p></div>
+<hr>
+<h2 id="簡単な例">簡単な例</h2>
+<p>では，簡単な例でベイズ線形回帰を実施してみましょう．
+今回は，</p>
+<p>$$
+y = ax+b
+\tag{11}
+$$</p>
+<p>という1次関数について考えます．
+真のモデルを $a^* = 0.5,~b^* = -1$ とします．
+人工データについて説明します．
+$n$番目のデータについて，入力変数 $x_n\in\mathbb R^1$ は，区間 $[-5, 5]$ 上の一様分布からランダムに生成します．
+また，出力変数 $y_n\in\mathbb R^1$ は $y_n=a^*x_n+b^*+\epsilon_n$ として生成します．
+ここで，$\epsilon_n$ はガウスノイズであり，今回は平均 $\mu_{\epsilon} = 0$，分散 $\sigma_{\epsilon}^2=(0.3)^2$ としました．
+また，$a,b$それぞれの事前分布のガウス分布の平均は $\mu_a=\mu_b=0$ とし，分散は $\sigma_a^2=\sigma_b^2 = 1$ としました．</p>
+<p>データ数を $N=10, 25, 50, 75, 100$ とした場合についてベイズ線形回帰を行い，$a, b$ の事後分布がどのような形になるのか観察してみます．
+まずはそれぞれのデータ数における観測データを以下に示します．</p>
+<p><img src="data.jpg" alt=""></p>
+<p>最後に，得られた事後分布を確認してみましょう．
+データ数 $N = 10, 25, 50, 75, 100$ での事後分布と，追加でデータ数を $N=1,000$ まで増やした場合の事後分布を描写しています．
+図中の $\bm\times$ は真の値 $(a^<em>,b^</em>)$ を示します．
+データ数が少ないときには，事後分布が大きな分散を持つガウス分布であることが確認できます．
+このケースでは，データ数の増加に伴い，事後分布の分散が小さくなり，真の切片，傾き付近にピークを持つような鋭いガウス分布となっていることがわかります．</p>
+<p><img src="post.jpg" alt=""></p>
+<p>この実験は以下の<code>Python</code>スクリプトによって再現できます．</p>
+<details>
+<summary>コードはこちら</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+    <span style="color:#75715e"># ライブラリのインポート（適宜インストールしてください）</span>
+    <span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+    <span style="color:#f92672">import</span> matplotlib
+    <span style="color:#f92672">from</span> matplotlib <span style="color:#f92672">import</span> pyplot <span style="color:#66d9ef">as</span> plt
+    <span style="color:#f92672">import</span> matplotlib.mlab <span style="color:#66d9ef">as</span> mlab
+    <span style="color:#f92672">import</span> japanize_matplotlib
+
+    N <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> <span style="color:#75715e"># データ数</span>
+
+    a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span> <span style="color:#75715e"># 真の傾き</span>
+    b <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0</span> <span style="color:#75715e"># 真の切片</span>
+
+    s_e <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#75715e"># ノイズの従うガウス分布の分散</span>
+    s_w <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#75715e"># 事前分布の分散</span>
+
+    np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">2022</span>) <span style="color:#75715e"># シードの固定</span>
+    x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>, N) <span style="color:#75715e"># N個の入力変数を生成</span>
+    y <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> x <span style="color:#f92672">+</span> b <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>, s_e, N) <span style="color:#75715e"># 出力変数を計算しノイズを加重</span>
+
+    <span style="color:#75715e"># 実験に使用する人工データの描写</span>
+    fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">4</span>), dpi <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>)
+    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+    ax<span style="color:#f92672">.</span>grid()
+    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;入力変数 $x$&#34;</span>, fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span>)
+    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;出力変数 $y$&#34;</span>, fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span>)
+
+    <span style="color:#75715e"># この辺はなんか綺麗になるように手動で設定</span>
+    ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span>)
+    ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> a <span style="color:#f92672">+</span> b <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> a <span style="color:#f92672">+</span> b <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span>)
+
+    <span style="color:#75715e"># 散布図の描写</span>
+    ax<span style="color:#f92672">.</span>scatter(x, y, label <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;観測データ $\mathcal</span><span style="color:#e6db74">{D}</span><span style="color:#e6db74">=(x_n,y_n)_{n=1}^N$&#34;</span>, color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gray&#34;</span>)
+    <span style="color:#75715e"># 真の直線の描写</span>
+    ax<span style="color:#f92672">.</span>plot([<span style="color:#f92672">-</span><span style="color:#ae81ff">5.5</span>, <span style="color:#ae81ff">5.5</span>], [<span style="color:#f92672">-</span><span style="color:#ae81ff">5.5</span> <span style="color:#f92672">*</span> a <span style="color:#f92672">+</span> b, <span style="color:#ae81ff">5.5</span> <span style="color:#f92672">*</span> a <span style="color:#f92672">+</span> b], color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;black&#34;</span>, ls <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;--&#34;</span>, zorder <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, label <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;真の関数 $y=0.5x-1$&#34;</span>)
+
+    ax<span style="color:#f92672">.</span>legend(fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>)
+    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;データ数 $N = {&#34;</span><span style="color:#f92672">+</span>str(N)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;}$&#34;</span>, fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span>)
+
+    <span style="color:#75715e"># 図の保存</span>
+    <span style="color:#75715e"># fig.savefig(&#34;fig/data_&#34;+str(N)+&#34;.jpg&#34;, bbox_inches = &#34;tight&#34;, transparent=True)</span>
+
+    <span style="color:#75715e"># 特徴ベクトルの作成</span>
+    phi <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>concatenate([np<span style="color:#f92672">.</span>ones(shape <span style="color:#f92672">=</span> (N, <span style="color:#ae81ff">1</span>)), x<span style="color:#f92672">.</span>reshape(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)], axis <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>)
+
+    <span style="color:#75715e"># 事後分布の共分散行列の計算</span>
+    phiphiT <span style="color:#f92672">=</span> phi<span style="color:#f92672">.</span>T<span style="color:#f92672">.</span>dot(phi)
+    Sigma_inv <span style="color:#f92672">=</span> phiphiT <span style="color:#f92672">/</span> (s_e<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>eye(<span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> (s_w<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)
+    Sigma <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linalg<span style="color:#f92672">.</span>inv(Sigma_inv)
+
+    <span style="color:#75715e"># 事後分布の平均の計算</span>
+    mu <span style="color:#f92672">=</span> (Sigma <span style="color:#f92672">/</span> (s_e<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>))<span style="color:#f92672">.</span>dot(phi<span style="color:#f92672">.</span>T<span style="color:#f92672">.</span>dot(y<span style="color:#f92672">.</span>reshape(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)))
+
+    <span style="color:#75715e"># 2次元ガウス分布の確率密度関数を計算する関数</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f</span>(x, y, mu, S):
+    x_norm <span style="color:#f92672">=</span> (np<span style="color:#f92672">.</span>array([x, y]) <span style="color:#f92672">-</span> mu[:, <span style="color:#66d9ef">None</span>, <span style="color:#66d9ef">None</span>])<span style="color:#f92672">.</span>transpose(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>)
+    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span> x_norm[:, :, <span style="color:#66d9ef">None</span>, :] <span style="color:#f92672">@</span> np<span style="color:#f92672">.</span>linalg<span style="color:#f92672">.</span>inv(S)[<span style="color:#66d9ef">None</span>, <span style="color:#66d9ef">None</span>, :, :] <span style="color:#f92672">@</span> x_norm[:, :, :, <span style="color:#66d9ef">None</span>] <span style="color:#f92672">/</span> <span style="color:#ae81ff">2.0</span>) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>sqrt(np<span style="color:#f92672">.</span>linalg<span style="color:#f92672">.</span>det(S)))
+
+    <span style="color:#75715e"># グリッドの定義</span>
+    x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">200</span>)
+    y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0.25</span>, <span style="color:#ae81ff">0.75</span>, <span style="color:#ae81ff">200</span>)
+    X, Y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x, y)
+
+    <span style="color:#75715e"># 確率密度関数の計算</span>
+    Z <span style="color:#f92672">=</span> f(X, Y, mu <span style="color:#f92672">=</span> mu<span style="color:#f92672">.</span>squeeze(), S <span style="color:#f92672">=</span> Sigma)<span style="color:#f92672">.</span>squeeze()
+
+    <span style="color:#75715e"># 確率密度関数の等高線の描写</span>
+    fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">6</span>), dpi <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>)
+    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>) <span style="color:#75715e">#1. 0.75 0.5 - 0.375, 0.5 + 0.375</span>
+
+    <span style="color:#75715e"># 等高線の描写</span>
+    ax<span style="color:#f92672">.</span>contour(X, Y, Z, cmap <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>cm<span style="color:#f92672">.</span>get_cmap(<span style="color:#e6db74">&#34;Greys&#34;</span>))
+    <span style="color:#75715e"># 真の傾きと切片を描写</span>
+    ax<span style="color:#f92672">.</span>scatter(b, a, label <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;$(a^*,b^*) = (0.5, -1)$&#34;</span>, marker <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;x&#34;</span>, s <span style="color:#f92672">=</span> <span style="color:#ae81ff">75</span>, zorder <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>, lw <span style="color:#f92672">=</span> <span style="color:#ae81ff">2.5</span>, color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;black&#34;</span>)
+
+    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;切片 $b$&#34;</span>, fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span>)
+    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;傾き $a$&#34;</span>, fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span>)
+    ax<span style="color:#f92672">.</span>legend(fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>)
+    ax<span style="color:#f92672">.</span>grid({<span style="color:#e6db74">&#39;grid_alpha&#39;</span> : <span style="color:#ae81ff">0.25</span>})
+    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;データ数 $N={&#34;</span> <span style="color:#f92672">+</span>str(N)<span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;}$&#34;</span>, fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span>)
+
+    <span style="color:#75715e"># 図の保存</span>
+    <span style="color:#75715e"># fig.savefig(&#34;fig/post_&#34; + str(N) + &#34;.jpg&#34;, bbox_inches = &#34;tight&#34;, transparent=True)</span>
+
+</code></pre></div></details>
+<h2 id="まとめ">まとめ</h2>
+<p>本記事では，ベイズ線形回帰をおさらいしました．
+具体的には，線形回帰モデルにおいて，ノイズにガウス分布，パラメータの事前分布にガウス分布を仮定した場合の事後分布を示すとともに，１次関数による簡単な実験を行いました．</p>
+<p>というか，修士論文の審査前日に何をやっているのでしょうか．
+僕は果たして大丈夫なのでしょうか．
+というわけで，訪問ありがとうございました．</p>
+
+    </div>
+</div><div id="social-media-share" class="has-text-centered">
+	<p><i>Sharing makes me happy :)</i></p>
+	<br>
+	
+	<div class="share-buttons">
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fbayes_lr%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Facebook. Opens in a new window.">
+	        <img src=/whoami/img/icons/45px/facebook.png>
+	    </a>
+
+	    <a  href="https://twitter.com/intent/tweet?text=%e3%83%99%e3%82%a4%e3%82%ba%e7%b7%9a%e5%bd%a2%e5%9b%9e%e5%b8%b0%e3%82%92%e3%81%8a%e3%81%95%e3%82%89%e3%81%84%e3%81%99%e3%82%8b%e3%80%82%e5%83%95%e3%81%af%e6%9e%9c%e3%81%9f%e3%81%97%e3%81%a6%e5%a4%a7%e4%b8%88%e5%a4%ab%e3%81%aa%e3%81%ae%e3%81%a7%e3%81%97%e3%82%87%e3%81%86%e3%81%8b%e3%80%82&url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fbayes_lr%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Twitter. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/twitter.png>
+	    </a>
+
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fbayes_lr%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Reddit. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/reddit.png>
+	    </a>
+
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fbayes_lr%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Pinterest. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/pinterest.png>
+	    </a>
+
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fbayes_lr%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Tumblr. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/tumblr.png>
+	    </a>
+
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fbayes_lr%2f
+			&title=%e3%83%99%e3%82%a4%e3%82%ba%e7%b7%9a%e5%bd%a2%e5%9b%9e%e5%b8%b0%e3%82%92%e3%81%8a%e3%81%95%e3%82%89%e3%81%84%e3%81%99%e3%82%8b%e3%80%82%e5%83%95%e3%81%af%e6%9e%9c%e3%81%9f%e3%81%97%e3%81%a6%e5%a4%a7%e4%b8%88%e5%a4%ab%e3%81%aa%e3%81%ae%e3%81%a7%e3%81%97%e3%82%87%e3%81%86%e3%81%8b%e3%80%82&summary=%e4%bf%ae%e5%a3%ab%e8%ab%96%e6%96%87%e5%af%a9%e6%9f%bb%e3%81%ae%e5%89%8d%e6%97%a5%e3%81%ab%e3%81%97%e3%81%a6%ef%bc%8c%e7%89%b9%e3%81%ab%e7%99%ba%e8%a1%a8%e3%81%ab%e3%81%af%e9%96%a2%e4%bf%82%e3%81%ae%e3%81%aa%e3%81%84%e8%a8%98%e4%ba%8b%e3%82%92%e6%9b%b8%e3%81%8d%e3%81%be%e3%81%97%e3%81%9f%ef%bc%8e%20%e5%83%95%e3%81%ab%e3%81%af%ef%bc%8c%e8%a9%a6%e9%a8%93%e5%89%8d%ef%bc%8c%e7%b7%a0%e3%82%81%e5%88%87%e3%82%8a%e5%89%8d%ef%bc%8c%e3%81%aa%e3%81%a9%e5%88%87%e7%be%bd%e8%a9%b0%e3%81%be%e3%81%a3%e3%81%9f%e8%aa%b2%e9%a1%8c%e3%81%ae%e5%89%8d%e3%81%ab%e7%ab%8b%e3%81%9f%e3%81%95%e3%82%8c%e3%82%8b%e3%81%a8%ef%bc%8c%e3%81%9d%e3%81%ae%e8%aa%b2%e9%a1%8c%e4%bb%a5%e5%a4%96%e3%81%ae%e8%aa%b2&source=rafed123.github.io"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on LinkedIn. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/linkedin.png>
+	    </a>
+
+	    <a  href="mailto:?subject=%e3%83%99%e3%82%a4%e3%82%ba%e7%b7%9a%e5%bd%a2%e5%9b%9e%e5%b8%b0%e3%82%92%e3%81%8a%e3%81%95%e3%82%89%e3%81%84%e3%81%99%e3%82%8b%e3%80%82%e5%83%95%e3%81%af%e6%9e%9c%e3%81%9f%e3%81%97%e3%81%a6%e5%a4%a7%e4%b8%88%e5%a4%ab%e3%81%aa%e3%81%ae%e3%81%a7%e3%81%97%e3%82%87%e3%81%86%e3%81%8b%e3%80%82&amp;body=Check out this site https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fbayes_lr%2f"
+	        title="Share via Email. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/mail.png>
+	    </a>
+	</div>
+</div>
+
+
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'ths-blog-1';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </div>
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <p>
+            © 2022 TH. Powered by
+            <a class="has-text-light" href="https://github.com/gohugoio/hugo" target="_blank">
+            Hugo</a>. Theme
+            <a class="has-text-light" href="https://github.com/rafed123/ramium/" target="_blank">
+                Ramium.
+            </a>
+        </p>
+    </div>
+</footer>
+</body>
+
+</html>

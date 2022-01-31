@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Machine Learning on TH&#39;s Blog</title>
-    <link>https://t0m0ya1997.github.io/whoami/tags/machine-learning/</link>
-    <description>Recent content in Machine Learning on TH&#39;s Blog</description>
+    <title>Bayesian Estimation on TH&#39;s Blog</title>
+    <link>https://t0m0ya1997.github.io/whoami/tags/bayesian-estimation/</link>
+    <description>Recent content in Bayesian Estimation on TH&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Sun, 30 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://t0m0ya1997.github.io/whoami/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://t0m0ya1997.github.io/whoami/tags/bayesian-estimation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ベイズ線形回帰をおさらいする。僕は果たして大丈夫なのでしょうか。</title>
       <link>https://t0m0ya1997.github.io/whoami/posts/bayes_lr/</link>

@@ -3,7 +3,7 @@ title: LASSO と僕は同い年：① 線形回帰
 date: 2022-01-28
 categories: [Research-ish, Programming]
 tags: [Machine Learning, Mathematical Optimization]
-image: "/image/blog-pic.jpg"
+image: 
 math: true
 draft: true
 ---
@@ -24,32 +24,21 @@ $$
 $$
 
 で表されます．
-線形回帰モデルとは，出力変数を入力変数の線形な関数で回帰するものです．
-今，$n$ 個の出力変数を$1$次元であるとし， 
+
+今，画像のようなデータが与られているとしましょう．
+
+![image](../lasso_ls_0.png)
+
+図の中には，$n$個の点 $(x_i, y_i)_{i=1}^n,~~x_i,y_i\in\mathbb R,$ が描写されています．
+また，それぞれの点において，$x_i, y_i$ の関係は
 
 $$
-y^n=(y_1,y_2,\cdots,y_n),~~y_i\in\mathbb R^1~(i=1,2,\cdots,n)
+    y_i = ax_i + b + \epsilon
 $$
 
-と書きます．
-また，$n$ 個の入力変数を $d$ 次元であるとします．
-後々のために，入力変数の$1$次元目には定数 $1$を持たせておき，$d+1$次元のベクトルとして扱います．
-
-$$
-x^n=(\bm x_1,\cdots,\bm x_n),~~\bm x_i=(1,x_{i1},x_{i2},\cdots,x_{id})\in\mathbb R^{d+1}~(i=1,2,\cdots,n)
-$$
-
-ここで，回帰係数 $\bm w$ を
-
-$$
-\bm w = (w_{0},w_{1},w_{2}\cdots,w_{d})\in\mathbb R^{d+1}
-$$
-
-とおき，入力変数と出力変数の関係が
-
-$$
-\bm y_i = \bm w^T\bm x + \epsilon,~(i=1,2,\cdots,n)
-$$
+で表されており，$a = 2, b = 1$ としています．
+この $y=2x+1$ の直線を図中の赤線で示しています．
+ここで，$\epsilon$ はノイズを意味し，この図の例では，平均 $0$，分散 $1$ のガウス分布 $\mathcal N(0,1)$ に従う確率変数の実現値とします．
 
 であることを仮定するモデルを**線形回帰モデル**と呼びます．
 ここで，$\epsilon\in\mathbb R^1$ は出力に加重されるノイズ，もしくは誤差です．
