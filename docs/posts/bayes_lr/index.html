@@ -29,7 +29,7 @@
 <meta itemprop="name" content="ベイズ線形回帰をおさらいする。僕は果たして大丈夫なのでしょうか。">
 <meta itemprop="description" content="修士論文審査の前日にして，特に発表には関係のない記事を書きました． 僕には，試験前，締め切り前，など切羽詰まった課題の前に立たされると，その課題以外の課"><meta itemprop="datePublished" content="2022-01-30T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-01-30T00:00:00+00:00" />
-<meta itemprop="wordCount" content="3625"><meta itemprop="image" content="https://t0m0ya1997.github.io/whoami/image/profile.jpg"/>
+<meta itemprop="wordCount" content="3653"><meta itemprop="image" content="https://t0m0ya1997.github.io/whoami/image/profile.jpg"/>
 <meta itemprop="keywords" content="Bayesian Estimation,Machine Learning,Python," />
 <link rel="canonical" href="https://t0m0ya1997.github.io/whoami/posts/bayes_lr/" />
 
@@ -248,7 +248,7 @@ $$</p>
 <p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span></p><p>補足となりますが，最尤推定の他にも $\bm w$ の推定方法が存在します．
 <strong>ベイズ推論</strong>では，式(4)に示す事後確率 $p(\bm w|\mathcal D)$ を推論します．
 また，式(4)に示す事後確率を最大化するような $\bm w$ を推定値とする手法を<strong>MAP推定</strong>（事後確率最大化推定）と呼びます．
-詳細については<a href="">ベイズ統計の理論と方法</a>（1.3 さまざまな推測方法） が参考になります．</p></div>
+詳細については<a href="(https://www.coronasha.co.jp/np/isbn/9784339024623/)">ベイズ統計の理論と方法</a>（1.3 さまざまな推測方法） が参考になります．</p></div>
 <hr>
 <h2 id="ベイズ線形回帰">ベイズ線形回帰</h2>
 <p>本題のベイズ線形回帰の説明をします．
@@ -281,7 +281,7 @@ $$</p>
 <div class="notice info" >
 <p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span></p><p>今回は，ノイズと$\bm w$ の事前分布 $p(\bm w)$ をガウス分布と仮定することで，幸いにも事後分布が解析的に解ける「<strong>可解モデル</strong>」となりました．
 「なぜガウス分布か？」という疑問を持った方は，本記事の内容を超えてしまいますが，「指数型分布とその共役分布」について調べてみるとより理解が深まると思います．
-また，<a href="">ベイズ統計の理論と方法</a>（1.2.3 計算できる例） が参考になります．</p>
+また，<a href="(https://www.coronasha.co.jp/np/isbn/9784339024623/)">ベイズ統計の理論と方法</a>（1.2.3 計算できる例） が参考になります．</p>
 <p>しかしながら，現実問題に対して統計モデルを構築しようとすると，可解モデルの範疇には収まらないことがほとんどです．
 多くの場合，解析的には解かせてくれません．
 より一般的に，データ $\mathcal D$ と，パラメータ $\theta$ でパラメトライズされた確率モデル $p(\theta, \mathcal D)$ について考えます．</p>
@@ -406,6 +406,9 @@ $n$番目のデータについて，入力変数 $x_n\in\mathbb R^1$ は，区�
 <p>というか，修士論文の審査前日に何をやっているのでしょうか．
 僕は果たして大丈夫なのでしょうか．
 というわけで，訪問ありがとうございました．</p>
+<hr>
+<h4 id="参考文献">参考文献</h4>
+<p>[1] <a href="https://www.coronasha.co.jp/np/isbn/9784339024623/">ベイズ統計の理論と方法</a>（渡辺澄夫 著, コロナ社）</p>
 
     </div>
 </div><div id="social-media-share" class="has-text-centered">
