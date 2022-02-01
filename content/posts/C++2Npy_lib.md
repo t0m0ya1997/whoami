@@ -4,7 +4,7 @@ date: 2022-01-28
 tags: [Programming, C++, Python]
 description: "この記事では，Python の numpy で使える .npy 形式で C++ の vector を保存する方法を紹介します．"
 math: true
-image: "/image/c++2npy.jpg"
+image: "/image/c++2npy.webp"
 last-mod: 2022-1-28
 ---
 

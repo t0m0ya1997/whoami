@@ -2,8 +2,9 @@
 title: ベイズ線形回帰をおさらいする。僕は果たして大丈夫なのでしょうか。
 date: 2022-01-30
 category: [Research-ish]
-tags: [Bayesian Estimation, Machine Learning, Python, ]
-image: "image/bayes_lr.jpg"
+tags: [Bayesian Estimation, Machine Learning, Python]
+description: "この記事では，ベイズ線形回帰を紹介します．"
+image: "image/bayes_lr.webp"
 math: true
 ---
 

@@ -4,7 +4,7 @@ date: 2022-01-21
 category: [Life, ]
 tags: []
 description: "はじめまして．社会人になる，なってしまうことから，ブログを移転しました．"
-image: "/image/profile.jpg"
+image: "/image/profile.webp"
 draft: false
 showDate: true
 lastmod: 2022-1-22
