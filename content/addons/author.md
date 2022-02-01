@@ -5,7 +5,7 @@ draft: false
 type: "addons"
 layout: "author"
 url: "/author/"
-image: "/image/profile.jpg"
+image: "/image/profile.webp"
 ---
 
 現時点では修士学生，4月からとある広告代理店でデータサイエンティストとなるTHと申します．
