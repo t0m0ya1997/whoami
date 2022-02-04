@@ -6,7 +6,7 @@ languageCode = "jp"
 DefaultContentLanguage = "jp"
 hasCJKLanguage = true
 enableInlineShortcodes = true
-theme = "ramium"
+theme = ["hugo-notice", "ramium"]
 
 title = "TH's Blog"
 disqusShortname = "ths-blog-1"

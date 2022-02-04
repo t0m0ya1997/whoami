@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head><title>
+    MCMCってなんぞや：Metropolis-Hastings 法 | 
+    
+    TH&#39;s Blog</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="TH のブログ : TH Blog
+    ">
+
+
+<meta property="og:title" content="MCMCってなんぞや：Metropolis-Hastings 法" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://t0m0ya1997.github.io/whoami/posts/metropolis/" /><meta property="og:image" content="https://t0m0ya1997.github.io/whoami/image/profile.webp"/><meta property="article:section" content="posts" />
+
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://t0m0ya1997.github.io/whoami/image/profile.webp"/>
+
+<meta name="twitter:title" content="MCMCってなんぞや：Metropolis-Hastings 法"/>
+<meta name="twitter:description" content=""/>
+
+<meta itemprop="name" content="MCMCってなんぞや：Metropolis-Hastings 法">
+<meta itemprop="description" content="">
+
+<meta itemprop="wordCount" content="0"><meta itemprop="image" content="https://t0m0ya1997.github.io/whoami/image/profile.webp"/>
+<meta itemprop="keywords" content="Bayesian Estimation,Machine Learning,C&#43;&#43;,Python," />
+<link rel="canonical" href="https://t0m0ya1997.github.io/whoami/posts/metropolis/" />
+
+<link rel="icon" type="image/png" href="https://t0m0ya1997.github.io/whoamiimage/favicon.ico">
+
+<link rel="stylesheet" href="/whoami/css/font-awesome.min.css">
+<link rel="stylesheet" href="/whoami/css/bulma.min.css">
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6379MX42G5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6379MX42G5');
+</script>
+
+
+
+<script src=/whoami/js/ramium.js></script>
+<link rel="stylesheet" href=/whoami/css/ramium.css>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+    integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+    integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+    integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              
+              
+              delimiters: [
+                  {left: '$$', right: '$$', display: true},
+                  {left: '$', right: '$', display: false},
+                  {left: '\\(', right: '\\)', display: false},
+                  {left: '\\[', right: '\\]', display: true}
+              ],
+              
+              throwOnError : false
+            });
+        });
+    </script>
+
+
+</head>
+
+<body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=/whoami/>
+      
+      <strong>TH&#39;s Blog </strong>
+      
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      
+      
+      <a class="navbar-item" href="/whoami/">Home</a>
+      
+      
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">This Blog</a>
+        <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="/whoami/tags/">All Tags</a>
+          
+          <a class="navbar-item" href="/whoami/sections/">All Sections</a>
+          
+          <a class="navbar-item" href="/whoami/posts/">All Posts</a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <a class="navbar-item" href="/whoami/author/">Author</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <a class="navbar-item navgithub" href="https://github.com/t0m0ya1997/whoami/" target="_blank">
+        <i class="fa fa-github fa-2x"></i>
+      </a>
+      
+
+      
+    </div>
+  </div>
+</nav><div class="columns is-centered">
+        <div id="page-body" class="column is-7">
+
+<div class="content blog">
+    <h1>MCMCってなんぞや：Metropolis-Hastings 法</h1>
+
+    <div id="infobar" class="level is-mobile">
+        <div class="level-left">
+            
+            <div class="level-item">
+                <p class="subtitle info date">Jan 1, 0001
+                </p>
+            </div>
+            
+
+            <div class="level-item">
+                <p class="subtitle info">
+                    1 min read
+                </p>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            <div class="tags">
+                
+                <a class="tag is-dark is-rounded" href="/whoami/tags/bayesian-estimation">Bayesian Estimation</a>
+                
+                <a class="tag is-dark is-rounded" href="/whoami/tags/machine-learning">Machine Learning</a>
+                
+                <a class="tag is-dark is-rounded" href="/whoami/tags/c&#43;&#43;">C&#43;&#43;</a>
+                
+                <a class="tag is-dark is-rounded" href="/whoami/tags/python">Python</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tags is-hidden-desktop">
+        
+        <a class="tag is-dark is-rounded" href="/whoami/tags/bayesian-estimation">Bayesian estimation</a>
+        
+        <a class="tag is-dark is-rounded" href="/whoami/tags/machine-learning">Machine learning</a>
+        
+        <a class="tag is-dark is-rounded" href="/whoami/tags/c&#43;&#43;">C</a>
+        
+        <a class="tag is-dark is-rounded" href="/whoami/tags/python">Python</a>
+        
+    </div>
+
+    <div class="blog-text">
+        
+        <figure>
+            <img src="/whoami/image/blog-pic.jpg">
+        </figure>
+        
+
+        
+    </div>
+</div><div id="social-media-share" class="has-text-centered">
+	<p><i>Sharing makes me happy :)</i></p>
+	<br>
+	
+	<div class="share-buttons">
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fmetropolis%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Facebook. Opens in a new window.">
+	        <img src=/whoami/img/icons/45px/facebook.png>
+	    </a>
+
+	    <a  href="https://twitter.com/intent/tweet?text=MCMC%e3%81%a3%e3%81%a6%e3%81%aa%e3%82%93%e3%81%9e%e3%82%84%ef%bc%9aMetropolis-Hastings%20%e6%b3%95&url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fmetropolis%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Twitter. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/twitter.png>
+	    </a>
+
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fmetropolis%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Reddit. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/reddit.png>
+	    </a>
+
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fmetropolis%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Pinterest. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/pinterest.png>
+	    </a>
+
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fmetropolis%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Tumblr. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/tumblr.png>
+	    </a>
+
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fmetropolis%2f
+			&title=MCMC%e3%81%a3%e3%81%a6%e3%81%aa%e3%82%93%e3%81%9e%e3%82%84%ef%bc%9aMetropolis-Hastings%20%e6%b3%95&summary=&source=rafed123.github.io"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on LinkedIn. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/linkedin.png>
+	    </a>
+
+	    <a  href="mailto:?subject=MCMC%e3%81%a3%e3%81%a6%e3%81%aa%e3%82%93%e3%81%9e%e3%82%84%ef%bc%9aMetropolis-Hastings%20%e6%b3%95&amp;body=Check out this site https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fmetropolis%2f"
+	        title="Share via Email. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/mail.png>
+	    </a>
+	</div>
+</div>
+
+
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'ths-blog-1';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </div>
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <p>
+            © 2022 TH. Powered by
+            <a class="has-text-light" href="https://github.com/gohugoio/hugo" target="_blank">
+            Hugo</a>. Theme
+            <a class="has-text-light" href="https://github.com/rafed123/ramium/" target="_blank">
+                Ramium.
+            </a>
+        </p>
+    </div>
+</footer>
+</body>
+
+</html>

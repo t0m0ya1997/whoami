@@ -1,6 +1,6 @@
 ---
-title: ベイズから眺めるMAP推定は豊洲の高層ビルから眺める東京湾よりも美しいのか。
-date: 2022-02-1
+title: MRFモデルで学部の僕と大学院の僕を比較。
+date: 2022-02-03
 category: [Research-ish]
 tags: [Bayesian Estimation, Machine Learning]
 description: ""
@@ -9,13 +9,137 @@ math: true
 draft: true
 ---
 
-Article goes here. 
 
-For other options, put these in the front matter:
-    description:            "A description" other than the blog intro
-    draft: true             to not publish article yet
-    showDate: true/false    to enable/disable showing dates
-    math: true              to enable showing equations (katex)
-    chordsheet: true        to add chordsheet styelsheet
-    lastmod: 2020-4-11      after modifying an article, set lastmod to let google know
-                            that you have updated the article (SEO)
+### 学部時代の僕が見るMRFモデル
+
+僕は学部（高専なのですが）時代に信号処理の問題を「信号の先見的情報を組み込んだ凸最適化」に落とし込み，最適化問題を解くことで，性質の良い信号データを得る，といった研究をしていました．
+例えば，以下のような問題を解いていました．
+
+{{<notice tip マルコフ確率場モデル>}}
+観測した $1$ 次元画像データを $\bm y\in\mathbb R^d$ とする．
+この画像 $\bm y$ にはノイズが乗っていると考えられるため，ノイズを除去したい．
+そこで，「**画像はある程度滑らかであろう**」という仮定のもと，隣接画素間の間に大きな差があれば罰則を加えるという最適化問題
+
+
+$$
+    \bm x^* = \text{argmin}_{\bm x}\frac{1}{2}||\bm y - \bm x||_2^2 + \frac{\lambda}{2}\sum_{i=1}^{d-1}\left(x_i - x_{i+1}\right)^2=\text{argmin}_{\bm x}\frac{1}{2}||\bm y - \bm x||_2^2 + \frac{\lambda}{2} ||D\bm x||_2^2
+    \tag{1}
+$$
+を解くことにした．
+ここで，$\lambda\in\mathbb R^1$ は正則化パラメータであり，$D\in\mathbb R^{d\times d}$ は以下の差分行列である．
+$$
+    D = 
+    \begin{pmatrix}
+    1 & -1 & 0 & 0 & \cdots & 0 & 0 \cr
+    0 & 1 & -1 & 0 & \cdots & 0 & 0\cr
+    0 & 0 & 1 & -1 & \cdots & 0 & 0\cr
+    \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \cr
+    0 & 0 & 0 & 0 & \cdots & 1 & -1\cr
+    \end{pmatrix}
+    \tag{2}
+$$
+
+この問題の解 $\bm x^*$ を**ノイズ除去された画像**とする．
+
+
+{{</notice>}}
+
+上の問題では，「元画像 $\bm y$ と，推定される画像 $\bm x$ はある程度近いものだ」という要請を $||\bm y - \bm x||_2^2$ で，「画像がある程度滑らかである」という先見的情報を正則化項 $||D\bm x||_2^2$ として加えることで問題を構成しました． 
+また，$\lambda$ はその大きさにより，「滑らかさ」の度合いを表現する**ハイパーパラメータ**と考えます．
+この $\lambda$ を決めるにはとりあえず色々な値を試して，良さげな値を決めれば良さそうです．
+なので，僕は学会発表の際には「ハイパーパラメータの適切な決定が今後の課題である．」とかよく言ってました．
+今思うと，なかなかに愚かだと思います．
+
+ちなみに，この問題の解は以下で与えられます．
+
+$$
+    \bm x^* = (I + \lambda D^TD)^{-1}\bm y
+    \tag{3}
+$$
+
+---
+
+### 大学院での僕が見るMRFモデル
+
+ベイズ推論を学ぶと，正則化パラメータ $\lambda$ の意味が初めてわかります．
+ベイズ推論の枠組みから，上で示したMRFモデルの問題を導出してみます．
+
+観測におけるノイズは平均が $0$，分散が $\sigma_y^2$ のガウス分布に従うとします．
+これは各画素値に独立に加重されているとすると，
+
+$$
+    p(\bm y | \bm x) = \prod_{i=1}^dp(x_i|y_i) = \prod_{i=1}^d\mathcal N(y_i - x_i|0,\sigma_y^2)=\left(\frac{1}{\sqrt{2\pi\sigma_y^2}}\right)^d\exp\left(-\frac{\sum_{i=1}^d(y_i - x_i)^2}{2\sigma_y^2}\right)
+    \tag{4}
+$$
+
+となります．
+これが**尤度関数**となります．
+
+「画像が滑らかである」という仮定を「隣接画素の差分が平均が $0$ 分散が $\sigma_x^2$ のガウス分布に従う」ということを仮定します．
+すなわち，$\bm x$ の**事前分布**を
+
+$$
+    p(\bm x) = \prod_{i=1}^{d-1}p(x_i - x_{i+1}) = \prod_{i=1}^{d-1}\mathcal N(x_i - x_{i+1}|0,\sigma_x^2) = \left(\frac{1}{\sqrt{2\pi\sigma_x^2}}\right)^{d-1}\exp\left(-\frac{\sum_{i=1}^{d-1}(x_i-x_{i+1})^2}{2\sigma_x^2}\right)
+    \tag{5}
+$$
+
+とします．
+
+ベイズの定理から，観測画像 $\bm y$ が与えられたもとでの $\bm x$ の事後確率は，
+
+$$
+    p(\bm x|\bm y) \propto p(\bm y|\bm x)p(\bm x)=\left(\frac{1}{\sqrt{2\pi\sigma_y^2}}\right)^d \left(\frac{1}{\sqrt{2\pi\sigma_x^2}}\right)^{d-1}\exp\left(-\frac{\sum_{i=1}^d(y_i - x_i)^2}{2\sigma_y^2} - \frac{\sum_{i=1}^{d-1}(x_i-x_{i+1})^2}{2\sigma_x^2}\right)
+    \tag{6}
+$$
+
+となります．
+どうでも良いかもしれませんが，僕はベクトル表記を好みます．
+ベクトルで表記すると
+
+$$
+    p(\bm x|\bm y) \propto p(\bm y|\bm x)p(\bm x)=\left(\frac{1}{\sqrt{2\pi\sigma_y^2}}\right)^d \left(\frac{1}{\sqrt{2\pi\sigma_x^2}}\right)^{d-1}\exp\left(-\frac{||\bm y-\bm x||_2^2}{2\sigma_y^2} - \frac{||D\bm x||_2^2}{2\sigma_x^2}\right)
+    \tag{7}
+$$
+
+となります．
+ここで，**事後確率最大化推定**，すなわち**MAP推定**を行うことを考えると，<mark>事後確率を最大化することと，事後確率の対数の符号反転を最小化することは等価</mark>であるので，
+
+$$
+    -\log p(\bm y|\bm x)p(\bm x) = \frac{||\bm y-\bm x||_2^2}{2\sigma_y^2} + \frac{||D\bm x||_2^2}{2\sigma_x^2} + \frac{d}{2}\log{2\pi\sigma_y^2} + \frac{d-1}{2}\log{2\pi\sigma_x^2}
+    \tag{8}
+$$
+
+を最小化することと等価です．
+すなわち，$\bm x$ についての以下の最適化問題を解くことと等価になります．
+
+$$
+    \bm x^* = \text{argmin}_{\bm x}\frac{1}{2}||\bm y - \bm x||_2^2 + \frac{\lambda}{2}||D\bm x||_2^2
+    \tag{9}
+$$
+
+ここで，$\lambda$ は
+
+$$
+    \lambda = \frac{\sigma_y^2}{\sigma_x^2}
+    \tag{10}
+$$
+
+としました．
+まさに冒頭で示したMRFモデルの最適化問題であることがわかります．
+ここで，ハイパーパラメータ $\lambda$ の意味が初めてわかります．
+$\lambda$ は，「**尤度関数で仮定したガウス分布の分散と事前分布で仮定したガウス分布の分散の比**」となるのです．
+
+ハイパーパラメータの意味を知ると，その適切な決め方もわかります．
+ここでは詳細は述べませんが，**統計モデルのモデル選択**により，適切なハイパーパラメータを決定することができます．
+例えば，`AIC`，`BIC`などといった情報量基準を用いることで，最適なハイパーパラメータ $ {\lambda}^* $ をグリッドサーチのような方法で探索できますし，周辺尤度や自由エネルギーについて $ {\lambda}^* $ を勾配法で求めることなども考えられます．
+
+{{<notice info 気づきと後悔>}}
+学部時代に頑張って解いていた最適化問題の多くは，実は**MAP推定**でした．
+**LASSO回帰**や**Ridge回帰**もMAP推定です．
+このことに気づいたのは修士課程入学前の春休み．
+学部の頃は，「先見的知見をどう最適化問題に組み込むか」というようなことや，「最適化問題を解くための凸最適化のソルバーや最適化技法」に注意しすぎて，このような観点から問題を見ることができていませんでした．
+もっと早い段階で統計的機械学習の本を１冊でも読んでおけばよかったなぁと後悔しています．
+
+また，凸最適化問題は局所的な最適化が大域的な最適解と一致するという嬉しい性質を持ちます．
+このことは，ベイズ統計の立場からすると，最適パラメータがユニークであることを意味します．
+{{</notice>}}
