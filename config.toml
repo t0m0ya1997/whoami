@@ -78,6 +78,3 @@ enableemoji = true
             disable = true
         [privacy.youtube]
             disable = true
-
-[sitemap]
-  filename = "assets/my-sitemap.xml"
