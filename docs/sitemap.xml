@@ -1,84 +1,87 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://t0m0ya1997.github.io/whoami/tags/bayesian-estimation/</loc>
-    <lastmod>2022-01-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t0m0ya1997.github.io/whoami/tags/machine-learning/</loc>
-    <lastmod>2022-01-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t0m0ya1997.github.io/whoami/posts/</loc>
-    <lastmod>2022-01-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t0m0ya1997.github.io/whoami/tags/python/</loc>
-    <lastmod>2022-01-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t0m0ya1997.github.io/whoami/tags/</loc>
-    <lastmod>2022-01-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t0m0ya1997.github.io/whoami/posts/bayes_lr/</loc>
-    <lastmod>2022-01-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t0m0ya1997.github.io/whoami/tags/c++/</loc>
-    <lastmod>2022-01-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t0m0ya1997.github.io/whoami/posts/cpp2npy_lib/</loc>
-    <lastmod>2022-01-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t0m0ya1997.github.io/whoami/tags/programming/</loc>
-    <lastmod>2022-01-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t0m0ya1997.github.io/whoami/posts/master_thesis/</loc>
-    <lastmod>2022-01-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t0m0ya1997.github.io/whoami/posts/hello_world/</loc>
-    <lastmod>2022-01-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t0m0ya1997.github.io/whoami/author/</loc>
-    <lastmod>2020-04-06T02:07:31+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t0m0ya1997.github.io/whoami/addons/</loc>
-    <lastmod>2020-04-06T02:07:31+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t0m0ya1997.github.io/whoami/admin/</loc>
-    <lastmod>2020-04-06T02:07:30+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t0m0ya1997.github.io/whoami/sections/</loc>
-    <lastmod>2020-04-06T02:07:30+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t0m0ya1997.github.io/whoami/</loc>
-    <lastmod>2020-03-25T04:52:30+06:00</lastmod>
-  </url>
-  
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!--  created with free sitemap generation system www.sitemapxml.jp  --> 
+<url>
+  <loc>https://t0m0ya1997.github.io/whoami/</loc>
+  <lastmod>2022-02-05T23:33:25+09:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://t0m0ya1997.github.io/whoami/tags/</loc>
+  <lastmod>2022-02-05T23:33:25+09:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://t0m0ya1997.github.io/whoami/sections/</loc>
+  <lastmod>2022-02-05T23:33:25+09:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://t0m0ya1997.github.io/whoami/posts/</loc>
+  <lastmod>2022-02-05T23:33:25+09:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://t0m0ya1997.github.io/whoami/author/</loc>
+  <lastmod>2022-02-05T23:33:25+09:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://t0m0ya1997.github.io/whoami/tags/bayesian-estimation</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://t0m0ya1997.github.io/whoami/tags/machine-learning</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://t0m0ya1997.github.io/whoami/tags/programming</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://t0m0ya1997.github.io/whoami/tags/python</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://t0m0ya1997.github.io/whoami/posts/bayes_lr/</loc>
+  <lastmod>2022-02-05T23:33:25+09:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://t0m0ya1997.github.io/whoami/posts/cpp2npy_lib/</loc>
+  <lastmod>2022-02-05T23:33:25+09:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://t0m0ya1997.github.io/whoami/posts/master_thesis/</loc>
+  <lastmod>2022-02-05T23:33:25+09:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://t0m0ya1997.github.io/whoami/posts/hello_world/</loc>
+  <lastmod>2022-02-05T23:33:25+09:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://t0m0ya1997.github.io/whoami/tags/bayesian-estimation/</loc>
+  <lastmod>2022-02-05T23:33:25+09:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://t0m0ya1997.github.io/whoami/tags/machine-learning/</loc>
+  <lastmod>2022-02-05T23:33:25+09:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://t0m0ya1997.github.io/whoami/tags/programming/</loc>
+  <lastmod>2022-02-05T23:33:25+09:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://t0m0ya1997.github.io/whoami/tags/python/</loc>
+  <lastmod>2022-02-05T23:33:25+09:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+
 </urlset>
