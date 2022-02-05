@@ -18,10 +18,10 @@
     
     <item>
       <title>C&#43;&#43;のvectorを.npy形式で保存したいあなたへ。</title>
-      <link>https://t0m0ya1997.github.io/whoami/posts/c&#43;&#43;2npy_lib/</link>
+      <link>https://t0m0ya1997.github.io/whoami/posts/cpp2npy_lib/</link>
       <pubDate>Fri, 28 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://t0m0ya1997.github.io/whoami/posts/c&#43;&#43;2npy_lib/</guid>
+      <guid>https://t0m0ya1997.github.io/whoami/posts/cpp2npy_lib/</guid>
       <description>この記事では，C++で数値シミュレーションを行っている方向けに，Python の numpy で使える.npy形式で C++配列vector を保存する方法を紹介します</description>
     </item>
     
@@ -67,15 +67,6 @@
       <pubDate>Mon, 06 Apr 2020 02:07:30 +0600</pubDate>
       
       <guid>https://t0m0ya1997.github.io/whoami/sections/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>MCMCってなんぞや：Metropolis-Hastings 法</title>
-      <link>https://t0m0ya1997.github.io/whoami/posts/metropolis/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://t0m0ya1997.github.io/whoami/posts/metropolis/</guid>
       <description></description>
     </item>
     
