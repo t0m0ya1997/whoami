@@ -6,6 +6,7 @@ tags: [Bayesian Estimation, Mixture Model, Machine Learning, MCMC]
 description: "この記事では，混合モデルのMCMCによるベイズ推論を紹介します．"
 image: ""
 math: true
+draft: true
 ---
 
 ### そもそも

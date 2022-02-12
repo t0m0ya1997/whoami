@@ -43,14 +43,5 @@
       <description>はじめまして． 社会人になる，なってしまうことから，ブログを移転しました． 社会人になると，様々なしがらみが増えるものです． 本名を堂々と名乗ることはできな</description>
     </item>
     
-    <item>
-      <title>MCMCによる混合ガウスモデル（GMM）のベイズ推論</title>
-      <link>https://t0m0ya1997.github.io/whoami/posts/mcmc_gmm/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://t0m0ya1997.github.io/whoami/posts/mcmc_gmm/</guid>
-      <description>そもそも 混合ガウスモデル（GMM：Gaussian Mixture Model）とは何でしょう． はじめに直感的な紹介をします． 以下のようなデータが与えられたとしましょ</description>
-    </item>
-    
   </channel>
 </rss>
