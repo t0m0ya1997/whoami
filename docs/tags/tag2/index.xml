@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tag2 on TH&#39;s Blog</title>
+    <link>https://t0m0ya1997.github.io/whoami/tags/tag2/</link>
+    <description>Recent content in tag2 on TH&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp</language>
+    <lastBuildDate>Tue, 08 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://t0m0ya1997.github.io/whoami/tags/tag2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GMMのベイズ推論</title>
+      <link>https://t0m0ya1997.github.io/whoami/posts/gmm/</link>
+      <pubDate>Tue, 08 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://t0m0ya1997.github.io/whoami/posts/gmm/</guid>
+      <description>はじめに この記事では混合ガウス分布モデル（GMM：Gaussian Mixture Model）のベイズ推論を解説します． Scikit-Learn などのライブラリではEMアルゴリズムによる</description>
+    </item>
+    
+  </channel>
+</rss>

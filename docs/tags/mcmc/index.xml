@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MCMC on TH&#39;s Blog</title>
+    <link>https://t0m0ya1997.github.io/whoami/tags/mcmc/</link>
+    <description>Recent content in MCMC on TH&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp</language><atom:link href="https://t0m0ya1997.github.io/whoami/tags/mcmc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MCMCによる混合ガウスモデル（GMM）のベイズ推論</title>
+      <link>https://t0m0ya1997.github.io/whoami/posts/mcmc_gmm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://t0m0ya1997.github.io/whoami/posts/mcmc_gmm/</guid>
+      <description>そもそも 混合ガウスモデル（GMM：Gaussian Mixture Model）とは何でしょう． はじめに直感的な紹介をします． 以下のようなデータが与えられたとしましょ</description>
+    </item>
+    
+  </channel>
+</rss>

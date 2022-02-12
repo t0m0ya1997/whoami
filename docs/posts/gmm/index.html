@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head><title>
+    GMMのベイズ推論 | 
+    
+    TH&#39;s Blog</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="この記事では混合ガウス分布モデル（GMM）のベイズ推論を解説します。一般的に多くの現場ではEMアルゴリズムによる推定が用いられていますが、今回はMCMCを用いてベイズ推論してみます。
+    ">
+
+
+<meta property="og:title" content="GMMのベイズ推論" />
+<meta property="og:description" content="この記事では混合ガウス分布モデル（GMM）のベイズ推論を解説します。一般的に多くの現場ではEMアルゴリズムによる推定が用いられていますが、今回はMCMCを用いてベイズ推論してみます。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://t0m0ya1997.github.io/whoami/posts/gmm/" /><meta property="og:image" content="https://t0m0ya1997.github.io/whoami/image/profile.webp"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-02-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-08T00:00:00+00:00" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://t0m0ya1997.github.io/whoami/image/profile.webp"/>
+
+<meta name="twitter:title" content="GMMのベイズ推論"/>
+<meta name="twitter:description" content="この記事では混合ガウス分布モデル（GMM）のベイズ推論を解説します。一般的に多くの現場ではEMアルゴリズムによる推定が用いられていますが、今回はMCMCを用いてベイズ推論してみます。"/>
+
+<meta itemprop="name" content="GMMのベイズ推論">
+<meta itemprop="description" content="この記事では混合ガウス分布モデル（GMM）のベイズ推論を解説します。一般的に多くの現場ではEMアルゴリズムによる推定が用いられていますが、今回はMCMCを用いてベイズ推論してみます。"><meta itemprop="datePublished" content="2022-02-08T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-02-08T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1560"><meta itemprop="image" content="https://t0m0ya1997.github.io/whoami/image/profile.webp"/>
+<meta itemprop="keywords" content="tag1,tag2," />
+<link rel="canonical" href="https://t0m0ya1997.github.io/whoami/posts/gmm/" />
+
+<link rel="icon" type="image/png" href="https://t0m0ya1997.github.io/whoamiimage/favicon.ico">
+
+<link rel="stylesheet" href="/whoami/css/font-awesome.min.css">
+<link rel="stylesheet" href="/whoami/css/bulma.min.css">
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6379MX42G5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6379MX42G5');
+</script>
+
+
+
+<script src=/whoami/js/ramium.js></script>
+<link rel="stylesheet" href=/whoami/css/ramium.css>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+    integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+    integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+    integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              
+              
+              delimiters: [
+                  {left: '$$', right: '$$', display: true},
+                  {left: '$', right: '$', display: false},
+                  {left: '\\(', right: '\\)', display: false},
+                  {left: '\\[', right: '\\]', display: true}
+              ],
+              
+              throwOnError : false
+            });
+        });
+    </script>
+
+
+</head>
+
+<body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=/whoami/>
+      
+      <strong>TH&#39;s Blog </strong>
+      
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      
+      
+      <a class="navbar-item" href="/whoami/">Home</a>
+      
+      
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">This Blog</a>
+        <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="/whoami/tags/">All Tags</a>
+          
+          <a class="navbar-item" href="/whoami/sections/">All Sections</a>
+          
+          <a class="navbar-item" href="/whoami/posts/">All Posts</a>
+          
+          <a class="navbar-item" href="/whoami/drafts/">書き溜め置き場</a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <a class="navbar-item" href="/whoami/author/">Author</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <a class="navbar-item navgithub" href="https://github.com/t0m0ya1997/whoami/" target="_blank">
+        <i class="fa fa-github fa-2x"></i>
+      </a>
+      
+
+      
+    </div>
+  </div>
+</nav><div class="columns is-centered">
+        <div id="page-body" class="column is-7">
+
+<div class="content blog">
+    <h1>GMMのベイズ推論</h1>
+
+    <div id="infobar" class="level is-mobile">
+        <div class="level-left">
+            
+            <div class="level-item">
+                <p class="subtitle info date">Feb 8, 2022
+                </p>
+            </div>
+            
+
+            <div class="level-item">
+                <p class="subtitle info">
+                    9 mins read
+                </p>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            <div class="tags">
+                
+                <a class="tag is-dark is-rounded" href="/whoami/tags/tag1">Tag1</a>
+                
+                <a class="tag is-dark is-rounded" href="/whoami/tags/tag2">Tag2</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tags is-hidden-desktop">
+        
+        <a class="tag is-dark is-rounded" href="/whoami/tags/tag1">Tag1</a>
+        
+        <a class="tag is-dark is-rounded" href="/whoami/tags/tag2">Tag2</a>
+        
+    </div>
+
+    <div class="blog-text">
+        
+        <figure>
+            <img src="/whoami/image/blog-pic.jpg">
+        </figure>
+        
+
+        <h3 id="はじめに">はじめに</h3>
+<p>この記事では混合ガウス分布モデル（GMM：Gaussian Mixture Model）のベイズ推論を解説します．
+<a href="">Scikit-Learn</a> などのライブラリではEMアルゴリズムによる推定が用いられていますが，今回はMCMCを用いてベイズ推論してみます．</p>
+<p>また，このモデルは局所解が存在します．
+MCMCは確率的な手法で，局所解へのトラップもある程度解消されるのですが，やはりトラップされるものです．
+今回は，<strong>Parallel Tempering</strong> としても知られている<strong>交換モンテカルロ法</strong>(REMC: Replica Exchange Monte Carlo)を用いて局所解にトラップされないアルゴリズムを構築します．
+さらに，REMCを用いると，<mark>混合数の事後分布も計算でき，適切な混合数の推定</mark>も行うことができます．</p>
+<hr>
+<h3 id="gmm-の定式化">GMM の定式化</h3>
+<p>GMM の定式化をします．
+手元にある $n$ 個の $d$ 次元データを $x^n = (\bm x_1,\bm x_2, \cdots, \bm x_n),\bm x_i\in\mathbb R^d~(i=1,2,\cdots,n)$ とします．
+各データは，以下の$K$ 個のガウス分布の混合から発生したと仮定します．</p>
+<p>$$
+p(\bm x|\theta=\{\pi,\mu,\Sigma\}) = \sum_{k=1}^K\mathcal \pi_kN(\bm x|\bm\mu,\Sigma)
+\tag{1}
+$$</p>
+<p>各混合における相対的なデータ量の比を以下の<mark>混合比</mark> $\pi$ とします．</p>
+<p>$$
+\pi = (\pi_1,\pi_2,\cdots,\pi_K),~\sum_{k=1}^K\pi_k = 1
+\tag{2}
+$$</p>
+<p>各混合のガウス分布の<mark>平均（中心）</mark>を $\mu=(\bm\mu_1,\bm\mu_2,\cdots,\bm\mu_K)$ とします．
+また，各混合のガウス分布の<mark>分散・共分散行列</mark>を $\Sigma=(\Sigma_1,\Sigma_2,\cdots,\Sigma_K)$ とします．
+以上が，混合正規分布の形状を決定するパラメータになります．
+これらをまとめて $\theta=\{\pi,\mu,\Sigma\}$ と書くことにします．</p>
+<p>さらに，各データはi.i.dに発生したと仮定すると，確率モデルは</p>
+<p>$$
+p(x^n|\theta) = \prod_{i=1}^np(\bm x_i|\theta)=\prod_{i=1}^n\left\{\sum_{k=1}^K\pi_k\mathcal N(\bm x_i|\bm\mu_k,\Sigma_k)\right\}
+\tag{3}
+$$</p>
+<p>と書くことができます．</p>
+<p>GMMの推論を行うにあたって，<strong>潜在変数</strong>を用いて定式化を行うと便利です．
+潜在変数とは，各データ点について，そのデータ点が「<mark>どの混合から発生しているのか</mark>」を明示的に表現する変数です．
+つまり，各データ点に対して$K$ 次元の One-hot なベクトルで所属する混合を表現します．
+潜在変数を $l^n$ とします．</p>
+<p>$$
+l^n = (\bm l_1,\bm l_2,\cdots, \bm l_n),　\bm l_i\in\{0, 1\}^K,　||\bm l_i|| = 1,　(i=1,2,\cdots,n)
+\tag{4}
+$$</p>
+<p>潜在変数を使うと式(3)の確率モデルは</p>
+<p>$$
+p(x^n, l^n|\theta) = \prod_{i=1}^np(\bm x_i,\bm l_i|\theta)=\prod_{i=1}^n\prod_{k=1}^K\left\{\pi_k\mathcal N(\bm x_i|\bm\mu_k,\Sigma_k)\right\}^{l_{i,k}}
+\tag{5}
+$$</p>
+<p>と書けます．
+ここで，$l_{i,k}$ は $\bm l_i$ の $k$ 番目の要素を表します．
+式(5)の確率モデルを $l^n$ について周辺化すると式(3)の確率モデルとなることもわかります．</p>
+<p>よって式(5)の確率モデルを，今回扱う<strong>GMMの確率モデル</strong>とします．</p>
+<p>また，このモデルの確率変数間の関係を示す<strong>グラフィカルモデル</strong>は以下です．</p>
+<hr>
+<h3 id="gmmのベイズ推論">GMMのベイズ推論</h3>
+<p>GMMのベイズ推論について述べます．
+グラフィカルモデルから，全変数の同時分布は</p>
+<p>$$
+p(x^n,l^n,\theta,K) = p(x^n,l^n|\theta)p(\theta|K)p(K)
+$$</p>
+<p>となります．
+$p(x^n,l^n|\theta)$ は<strong>尤度関数</strong>，$p(\theta|K), p(K)$ は<strong>事前分布</strong>です．
+ここで，パラメータ $\theta$ および，潜在変数 $l^n$ が与えられた時のモデルの<strong>誤差関数</strong> $E(\theta,l^n)$ を，尤度関数の対数の符号反転</p>
+<p>$$
+E(\theta,l^n) = -\log p(x^n,l^n|\theta)
+$$</p>
+<p>と定義します．
+定義から，</p>
+<p>$$
+p(x^n,l^n|\theta) = \exp\{-E(\theta,l^n)\}
+$$</p>
+<p>となります．</p>
+<p>潜在変数 $l^n$，パラメータ $\theta$ および混合数 $K$ の事後分布は</p>
+<p>$$
+p(l^n,\theta, K|x^n) = \frac{p(x^n,l^n,\theta,K)}{p(x^n)} \propto p(x^n,l^n|\theta)p(\theta|K)p(K)
+$$</p>
+<p>と書けます．
+ここで，混合数 $K$ の事後分布を考えてみます．
+混合数 $K\in\{1, 2, \cdots, K_{\text{max}}\}$ の事前分布 $p(K)$ は $\{1, 2, \cdots, K_{\text{max}}\}$ 上で一様分布であるとすると以下になります．</p>
+<p>$$
+p(K|x^n) = \iint p(l^n,\theta, K|x^n)\text{d}\theta\text{d}l^n \propto \iint p(x^n,l^n|\theta)p(\theta|K)\text{d}\theta\text{d}l^n = Z(K)
+$$</p>
+<p>ここで，$Z(K)$ は<strong>周辺尤度</strong>と呼ばれる量です．
+この積分を計算すれば，混合数 $K$ の事後分布を評価できるわけですが，潜在変数 $l^n$ およびパラメータ $\theta$ の積分となるため，解析的に解くのは困難なことがわかります．
+そこで，MCMCを用いてこの計算を，<strong>事後分布に従うサンプルの期待値</strong> として計算することを考えます．</p>
+<h4 id="レプリカ交換法">レプリカ交換法</h4>
+<p>上述した積分をサンプルの期待値として計算する手法としてレプリカ交換法（REMC）を紹介します．
+REMCでは，$M$ 個のの $0=\beta_1&lt;\beta_2&lt;\cdots&lt;\beta_M=1$ なるパラメータ（<strong>逆温度</strong>）を考えます．
+ここで，逆温度 $\beta_m$ での目標分布を</p>
+<p>$$
+p(l^n,\theta, K|x^n;\beta_m) \propto p(x^n,l^n|\theta)^{\beta_m}p(\theta|K) = \exp\{-\beta_mE(\theta,l^n)\}p(\theta|K)
+$$</p>
+<p>と設定します．
+また，</p>
+<p>$$
+z(\beta) = \iint p(l^n,\theta, K|x^n;\beta)\text{d}\theta\text{d}l^n=\iint \exp\{-\beta E(\theta,l^n)\}p(\theta|K)\text{d}\theta\text{d}l^n
+$$</p>
+<p>なる逆温度 $\beta$ の関数を考えます．
+定義から，</p>
+<p>$$
+z(\beta_1 = 0) = \iint p(\theta|K)\text{d}\theta\text{d}l^n = \int \text{d}l^n = K^n = C(n,K)
+$$</p>
+<p>となります．
+また，</p>
+<p>$$
+z(\beta_M = 1) = Z(K)
+$$</p>
+<p>であることもわかります．</p>
+<p>$$
+\begin{aligned}
+Z(K)
+&amp;= z(\beta_M) = C(n,K)\frac{z(\beta_M)}{z(\beta_1)} = C(n,K)\times\frac{z(\beta_2)}{z(\beta_1)}\times\frac{z(\beta_3)}{z(\beta_2)}\times\cdots\times\frac{z(\beta_M)}{z(\beta_{M-1})}\cr
+&amp;= C(n,K)\prod_{m=1}^{M-1}\frac{z(\beta_{m+1})}{z(\beta_m)} = C(n,K)\prod_{m=1}^{M-1}\frac{\iint \exp\{-\beta_{m+1} E(\theta,l^n)\}p(\theta|K)\text{d}\theta\text{d}l^n}{\iint \exp\{-\beta_m E(\theta,l^n)\}p(\theta|K)\text{d}\theta\text{d}l^n}\cr
+&amp;= C(n,K)\prod_{m=1}^{M-1}\Bigg\langle -(\beta_{m+1}-\beta_m)E(\theta, l^n)\Bigg\rangle_{q(\theta,l^n;\beta_m)}
+\end{aligned}
+$$</p>
+
+    </div>
+</div><div id="social-media-share" class="has-text-centered">
+	<p><i>Sharing makes me happy :)</i></p>
+	<br>
+	
+	<div class="share-buttons">
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fgmm%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Facebook. Opens in a new window.">
+	        <img src=/whoami/img/icons/45px/facebook.png>
+	    </a>
+
+	    <a  href="https://twitter.com/intent/tweet?text=GMM%e3%81%ae%e3%83%99%e3%82%a4%e3%82%ba%e6%8e%a8%e8%ab%96&url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fgmm%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Twitter. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/twitter.png>
+	    </a>
+
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fgmm%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Reddit. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/reddit.png>
+	    </a>
+
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fgmm%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Pinterest. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/pinterest.png>
+	    </a>
+
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fgmm%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Tumblr. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/tumblr.png>
+	    </a>
+
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fgmm%2f
+			&title=GMM%e3%81%ae%e3%83%99%e3%82%a4%e3%82%ba%e6%8e%a8%e8%ab%96&summary=%e3%81%af%e3%81%98%e3%82%81%e3%81%ab%20%e3%81%93%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%a7%e3%81%af%e6%b7%b7%e5%90%88%e3%82%ac%e3%82%a6%e3%82%b9%e5%88%86%e5%b8%83%e3%83%a2%e3%83%87%e3%83%ab%ef%bc%88GMM%ef%bc%9aGaussian%20Mixture%20Model%ef%bc%89%e3%81%ae%e3%83%99%e3%82%a4%e3%82%ba%e6%8e%a8%e8%ab%96%e3%82%92%e8%a7%a3%e8%aa%ac%e3%81%97%e3%81%be%e3%81%99%ef%bc%8e%20Scikit-Learn%20%e3%81%aa%e3%81%a9%e3%81%ae%e3%83%a9%e3%82%a4%e3%83%96%e3%83%a9%e3%83%aa%e3%81%a7%e3%81%afEM%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0%e3%81%ab%e3%82%88%e3%82%8b&source=rafed123.github.io"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on LinkedIn. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/linkedin.png>
+	    </a>
+
+	    <a  href="mailto:?subject=GMM%e3%81%ae%e3%83%99%e3%82%a4%e3%82%ba%e6%8e%a8%e8%ab%96&amp;body=Check out this site https%3a%2f%2ft0m0ya1997.github.io%2fwhoami%2fposts%2fgmm%2f"
+	        title="Share via Email. Opens in a new window." >
+	        <img src=/whoami/img/icons/45px/mail.png>
+	    </a>
+	</div>
+</div>
+
+
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'ths-blog-1';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </div>
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <p>
+            © 2022 TH. Powered by
+            <a class="has-text-light" href="https://github.com/gohugoio/hugo" target="_blank">
+            Hugo</a>. Theme
+            <a class="has-text-light" href="https://github.com/rafed123/ramium/" target="_blank">
+                Ramium.
+            </a>
+        </p>
+    </div>
+</footer>
+</body>
+
+</html>

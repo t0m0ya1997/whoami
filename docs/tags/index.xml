@@ -6,7 +6,25 @@
     <description>Recent content in Tags on TH&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Sun, 30 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://t0m0ya1997.github.io/whoami/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://t0m0ya1997.github.io/whoami/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tag1</title>
+      <link>https://t0m0ya1997.github.io/whoami/tags/tag1/</link>
+      <pubDate>Tue, 08 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://t0m0ya1997.github.io/whoami/tags/tag1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tag2</title>
+      <link>https://t0m0ya1997.github.io/whoami/tags/tag2/</link>
+      <pubDate>Tue, 08 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://t0m0ya1997.github.io/whoami/tags/tag2/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Bayesian Estimation</title>
       <link>https://t0m0ya1997.github.io/whoami/tags/bayesian-estimation/</link>
@@ -49,6 +67,24 @@
       <pubDate>Fri, 28 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://t0m0ya1997.github.io/whoami/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MCMC</title>
+      <link>https://t0m0ya1997.github.io/whoami/tags/mcmc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://t0m0ya1997.github.io/whoami/tags/mcmc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mixture Model</title>
+      <link>https://t0m0ya1997.github.io/whoami/tags/mixture-model/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://t0m0ya1997.github.io/whoami/tags/mixture-model/</guid>
       <description></description>
     </item>
     

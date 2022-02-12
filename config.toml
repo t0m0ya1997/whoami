@@ -60,6 +60,11 @@ enableRobotsTXT = "true"
                 name = "All Posts"
                 url = "/posts/"
                 weight = 3
+            [[menu.main]]
+                parent = "blog"
+                name = "書き溜め置き場"
+                url = "/drafts/"
+                weight = 4
     
     [[menu.main]]
         name = "Author"

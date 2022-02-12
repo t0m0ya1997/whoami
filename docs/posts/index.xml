@@ -6,7 +6,16 @@
     <description>Recent content in Posts on TH&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Sun, 30 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://t0m0ya1997.github.io/whoami/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://t0m0ya1997.github.io/whoami/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GMMのベイズ推論</title>
+      <link>https://t0m0ya1997.github.io/whoami/posts/gmm/</link>
+      <pubDate>Tue, 08 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://t0m0ya1997.github.io/whoami/posts/gmm/</guid>
+      <description>はじめに この記事では混合ガウス分布モデル（GMM：Gaussian Mixture Model）のベイズ推論を解説します． Scikit-Learn などのライブラリではEMアルゴリズムによる</description>
+    </item>
+    
     <item>
       <title>ベイズ線形回帰をおさらいする。僕は果たして大丈夫なのでしょうか。</title>
       <link>https://t0m0ya1997.github.io/whoami/posts/bayes_lr/</link>
@@ -41,6 +50,15 @@
       
       <guid>https://t0m0ya1997.github.io/whoami/posts/hello_world/</guid>
       <description>はじめまして． 社会人になる，なってしまうことから，ブログを移転しました． 社会人になると，様々なしがらみが増えるものです． 本名を堂々と名乗ることはできな</description>
+    </item>
+    
+    <item>
+      <title>MCMCによる混合ガウスモデル（GMM）のベイズ推論</title>
+      <link>https://t0m0ya1997.github.io/whoami/posts/mcmc_gmm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://t0m0ya1997.github.io/whoami/posts/mcmc_gmm/</guid>
+      <description>そもそも 混合ガウスモデル（GMM：Gaussian Mixture Model）とは何でしょう． はじめに直感的な紹介をします． 以下のようなデータが与えられたとしましょ</description>
     </item>
     
   </channel>
