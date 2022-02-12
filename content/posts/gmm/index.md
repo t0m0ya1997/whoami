@@ -5,6 +5,7 @@ tags: [tag1, tag2]
 description: "この記事では混合ガウス分布モデル（GMM）のベイズ推論を解説します。一般的に多くの現場ではEMアルゴリズムによる推定が用いられていますが、今回はMCMCを用いてベイズ推論してみます。"
 image: "/image/blog-pic.jpg"
 math: true
+draft: true
 ---
 
 ### はじめに
